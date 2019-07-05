@@ -12,6 +12,9 @@ jobs:
       - run:
           name: Setup Dependencies
           command: yarn install
+      - run:
+          name: Build Javascript Files
+          command: yarn build
       - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packages-{{ checksum "yarn.lock" }}
