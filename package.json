@@ -1,0 +1,31 @@
+{
+  "name": "create-opinionated-react-app",
+  "version": "0.0.1",
+  "bin": "lib/index.js",
+  "repository": "https://github.com/developer239/create-opinionated-react-app.git",
+  "author": "Michal Jarnot <m.jarnot@yahoo.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "inquirer": "^6.4.1",
+    "ora": "^3.4.0",
+    "shelljs": "^0.8.3"
+  },
+  "devDependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/inquirer": "^6.0.3",
+    "@types/meow": "^5.0.0",
+    "@types/ora": "^3.2.0",
+    "@types/shelljs": "^0.8.5",
+    "rollup": "^1.16.4",
+    "rollup-plugin-progress": "^1.1.1",
+    "rollup-plugin-typescript2": "^0.21.2",
+    "typescript": "^3.5.2"
+  }
+}
