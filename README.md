@@ -1,6 +1,6 @@
-# Create Opinionated React App
-
 [![Greenkeeper badge](https://badges.greenkeeper.io/developer239/create-opinionated-react-app.svg)](https://greenkeeper.io/)
+
+# Create Opinionated React App
 
 ![](https://imgs.xkcd.com/comics/standards.png)
 
