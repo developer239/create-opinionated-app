@@ -6,10 +6,10 @@ import shelljs from 'shelljs'
 // https://stackoverflow.com/questions/46354368/how-to-have-cli-spinner-run-during-shelljs-command-exec
 const runLongExec = (command: string) => {
   return new Promise((resolve, reject) => {
-    const process = childProcess.spawn(command, { shell: true })
+    const spawnedProcess = childProcess.spawn(command, { shell: true })
 
-    process.on('exit', resolve)
-    process.on('error', reject)
+    spawnedProcess.on('exit', resolve)
+    spawnedProcess.on('error', reject)
   })
 }
 

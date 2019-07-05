@@ -7,6 +7,8 @@
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
+    "format": "prettier --write '*/**/*.{ts,md,json}'",
+    "lint:ts": "eslint 'src/**/*.ts'",
     "semantic-release": "semantic-release"
   },
   "engines": {
