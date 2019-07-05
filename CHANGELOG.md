@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/developer239/create-opinionated-react-app/compare/v1.0.0...v1.0.1) (2019-07-05)
+
+
+### Bug Fixes
+
+* add build command to circle ci config ([c179295](https://github.com/developer239/create-opinionated-react-app/commit/c179295))
+
 # 1.0.0 (2019-07-05)
 
 
