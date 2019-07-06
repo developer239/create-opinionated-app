@@ -1,9 +1,39 @@
 import chalk from 'chalk'
-import { prompt } from 'inquirer'
 import { shell } from 'src/services/shell'
 import { logger } from 'src/services/log'
 import { packageJson } from 'src/services/packageJson'
 import { generator } from 'src/generator'
+
+export const addFilesToGit = async (projectName: string) => {
+  const { code } = shell.exec('git --version')
+
+  if (code !== 0) {
+    return logger.warning('✓ git not found. skipping this step')
+  }
+
+  await shell.execInProjectWithSpinner(projectName)(
+    'git add .',
+    'New files were added to git'
+  )
+
+  await shell.execInProjectWithSpinner(projectName)(
+    'git commit -m "feat: bootstrap application"',
+    'Changes were checked to version control.'
+  )
+}
+
+export const checkYarn = async () => {
+  const { code } = shell.exec('yarn --version')
+
+  if (code !== 0) {
+    logger.info(
+      `Yarn not found. Installing yarn on your machine ${chalk.blue(
+        'https://github.com/yarnpkg/yarn'
+      )}`
+    )
+    await shell.execWithSpinner('npm install -g yarn', 'yarn installed')
+  }
+}
 
 export const checkNpx = async () => {
   const { code } = shell.exec('npx --version')
@@ -11,26 +41,18 @@ export const checkNpx = async () => {
   if (code !== 0) {
     logger.info(
       `Npx not found. Installing npx on your machine ${chalk.blue(
-        'https://github.com/zkat/npx#readme'
+        'https://github.com/zkat/npx'
       )}`
     )
-    await shell.execWithSpinner('npm install -g npx', 'Npx installed')
+    await shell.execWithSpinner('npm install -g npx', 'npx installed')
   }
 }
 
-export const initializeCreateReactApp = async () => {
-  const { projectName } = await prompt({
-    name: 'projectName',
-    message: 'How do you want to call your project?',
-  })
-
-  await shell.execWithSpinner(
+export const initializeCreateReactApp = (projectName: string) =>
+  shell.execWithSpinner(
     `npx create-react-app ${projectName} --typescript`,
     'Create React App initialized'
   )
-
-  return { projectName }
-}
 
 export const cleanPackageJson = (projectName: string) =>
   packageJson.update(
