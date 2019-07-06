@@ -32,9 +32,9 @@ $ npx create-opinionated-react-app
 
 #### Libraries
 
-- [x] [Styled Components 💅](https://github.com/styled-components/styled-components) in every React application
+- [x] 💅 [Styled Components](https://github.com/styled-components/styled-components) for every React application
 - [x] [React Router](https://github.com/ReactTraining/react-router)
-- [x] [React Testing Library 🐐](https://github.com/testing-library/react-testing-library)
+- [x] 🐐 [React Testing Library](https://github.com/testing-library/react-testing-library)
 - [x] [Jest Styled Components](https://github.com/styled-components/jest-styled-components)
 
 #### Code Quality Tools
@@ -45,9 +45,9 @@ $ npx create-opinionated-react-app
 - [x] [STRV Code Quality Tools](https://github.com/strvcom/code-quality-tools)
 - [x] [Prettier](https://prettier.io)
 - [x] [Stylelint](https://stylelint.io/)
-- [x] [Husky 🐶](https://github.com/typicode/husky)
+- [x] 🐶 [Husky](https://github.com/typicode/husky)
 - [x] [CommitLint](https://github.com/conventional-changelog/commitlint)
-- [x] [LintStaged 🚫💩](https://github.com/okonet/lint-staged)
+- [x] [LintStaged](https://github.com/okonet/lint-staged)
 
 ## Why?
 
