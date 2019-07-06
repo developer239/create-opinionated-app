@@ -54,7 +54,14 @@ export const initializeCreateReactApp = async (projectName: string) => {
     'Create React App initialized'
   )
 
-  json.update('tsconfig.json')(
+  await shell.execInProjectWithSpinner(projectName)(
+    `yarn remove @types/jest @types/node @types/react @types/react-dom && yarn add @types/jest @types/node @types/react @types/react-dom -D`,
+    '@types moved to devDependencies'
+  )
+  await shell.execInProject(projectName)('rm README.md')
+  await generator.runActions(projectName, 'README.md')
+
+  await json.update('tsconfig.json')(
     {
       projectName,
       message: 'Adding baseUrl to tsconfig.json',
@@ -65,11 +72,6 @@ export const initializeCreateReactApp = async (projectName: string) => {
 
       return jsonFile
     }
-  )
-
-  await shell.execInProjectWithSpinner(projectName)(
-    `yarn remove @types/jest @types/node @types/react @types/react-dom && yarn add @types/jest @types/node @types/react @types/react-dom -D`,
-    '@types moved to devDependencies'
   )
 }
 
