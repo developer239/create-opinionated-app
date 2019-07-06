@@ -75,6 +75,26 @@ export const addPrettier = async (projectName: string) => {
   await generator.runActions(projectName, 'prettier')
 }
 
+export const addStyleLint = async (projectName: string) => {
+  await packageJson.update(
+    {
+      projectName,
+      message: 'Adding lint:css to scripts',
+      messageSuccess: 'lint:css added to scripts',
+    },
+    json => {
+      json.scripts['lint:css'] = '"lint:css": "stylelint \'src/**/*.{ts,tsx}\'"'
+
+      return json
+    }
+  )
+  await shell.execInProjectWithSpinner(projectName)(
+    'yarn add stylelint @strv/stylelint-config-styled-components stylelint-config-prettier -D',
+    'stylelint installed'
+  )
+  await generator.runActions(projectName, 'stylelint')
+}
+
 export const addEslint = async (projectName: string) => {
   await packageJson.update(
     {

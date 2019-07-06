@@ -8,6 +8,7 @@ import {
   checkNpx,
   addEslint,
   addPrettier,
+  addStyleLint,
 } from 'src/steps'
 
 const main = async () => {
@@ -25,6 +26,7 @@ const main = async () => {
   await addEditorConfig(projectName)
   await addBrowsersList(projectName)
   await addPrettier(projectName)
+  await addStyleLint(projectName)
   await addEslint(projectName)
 }
 

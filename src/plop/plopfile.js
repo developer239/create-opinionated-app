@@ -44,4 +44,10 @@ module.exports = plop => {
     templatePath: 'templates/prettierrc.hbs',
     filePath: '.prettierrc',
   })
+
+  setGenerator(plop)({
+    name: 'stylelint',
+    templatePath: 'templates/stylelintrc.hbs',
+    filePath: '.stylelintrc',
+  })
 }
