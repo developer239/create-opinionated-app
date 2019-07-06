@@ -1,6 +1,10 @@
+import fs from 'fs'
+import path from 'path'
 import chalk from 'chalk'
 import { prompt } from 'inquirer'
+import { IGeneratorState } from './index.types'
 import { logger } from 'src/services/log'
+import { words } from 'src/services/words'
 import {
   cleanPackageJson,
   addBrowsersList,
@@ -14,6 +18,7 @@ import {
   checkYarn,
   addFilesToGit,
   addBasicProjectFiles,
+  addReadme,
 } from 'src/steps'
 
 const main = async () => {
@@ -23,25 +28,47 @@ const main = async () => {
     )}.`
   )
 
-  const { projectName } = await prompt({
-    name: 'projectName',
+  const { projectFolder } = await prompt({
+    name: 'projectFolder',
     message: 'How do you want to call your project?',
+    validate: (value: string) => {
+      const validateName = require('validate-npm-package-name')
+
+      const { errors } = validateName(value)
+
+      if (errors) {
+        return 'Invalid name.'
+      }
+
+      if (fs.existsSync(path.resolve(value))) {
+        return 'Project with this name already exists.'
+      }
+
+      return true
+    },
   })
+  const projectName = words.toCapitalized(projectFolder)
+
+  const generatorState: IGeneratorState = {
+    projectFolder,
+    projectName,
+  }
 
   await checkYarn()
   await checkNpx()
 
-  await initializeCreateReactApp(projectName)
-  await cleanPackageJson(projectName)
+  await initializeCreateReactApp(generatorState)
+  await cleanPackageJson(generatorState)
+  await addReadme(generatorState)
 
-  await addEditorConfig(projectName)
-  await addBrowsersList(projectName)
-  await addPrettier(projectName)
-  await addStyleLint(projectName)
-  await addEslint(projectName)
-  await addGitHooks(projectName)
-  await addBasicProjectFiles(projectName)
-  await addFilesToGit(projectName)
+  await addEditorConfig(generatorState)
+  await addBrowsersList(generatorState)
+  await addPrettier(generatorState)
+  await addStyleLint(generatorState)
+  await addEslint(generatorState)
+  await addGitHooks(generatorState)
+  await addBasicProjectFiles(generatorState)
+  await addFilesToGit(generatorState)
 }
 
 main()

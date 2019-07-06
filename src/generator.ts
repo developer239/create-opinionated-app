@@ -1,13 +1,17 @@
 import path from 'path'
 import nodePlop from 'node-plop'
 import ora from 'ora'
+import { IGeneratorState } from 'src/index.types'
 
 const nodePlopGenerator = nodePlop(path.join(__dirname, 'plopfile.js'))
 
-const runActions = async (projectName: string, generatorName: string) => {
+const runActions = async (
+  generatorState: IGeneratorState,
+  generatorName: string
+) => {
   const spinner = ora()
   spinner.start(`Creating ${generatorName}`)
-  await nodePlopGenerator.getGenerator(generatorName).runActions({ projectFolder: projectName })
+  await nodePlopGenerator.getGenerator(generatorName).runActions(generatorState)
   spinner.succeed(`${generatorName} created`)
 }
 

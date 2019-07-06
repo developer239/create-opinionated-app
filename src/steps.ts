@@ -1,22 +1,23 @@
 import chalk from 'chalk'
+import { IGeneratorState } from './index.types'
 import { shell } from 'src/services/shell'
 import { logger } from 'src/services/log'
 import { json } from 'src/services/json'
 import { generator } from 'src/generator'
 
-export const addFilesToGit = async (projectName: string) => {
+export const addFilesToGit = async (state: IGeneratorState) => {
   const { code } = shell.exec('git --version')
 
   if (code !== 0) {
     return logger.warning('✓ git not found. skipping this step')
   }
 
-  await shell.execInProjectWithSpinner(projectName)(
+  await shell.execInProjectWithSpinner(state.projectFolder)(
     'git add .',
     'New files were added to git'
   )
 
-  await shell.execInProjectWithSpinner(projectName)(
+  await shell.execInProjectWithSpinner(state.projectFolder)(
     'git commit -m "feat: bootstrap application"',
     'Changes were checked to version control.'
   )
@@ -48,28 +49,25 @@ export const checkNpx = async () => {
   }
 }
 
-export const initializeCreateReactApp = async (projectName: string) => {
+export const initializeCreateReactApp = async (state: IGeneratorState) => {
   await shell.execWithSpinner(
-    `npx create-react-app ${projectName} --typescript`,
+    `npx create-react-app ${state.projectFolder} --typescript`,
     'Create React App initialized'
   )
 
-  await shell.execInProjectWithSpinner(projectName)(
+  await shell.execInProjectWithSpinner(state.projectFolder)(
     `yarn remove @types/jest @types/node @types/react @types/react-dom && yarn add @types/jest @types/node @types/react @types/react-dom -D`,
     '@types moved to devDependencies'
   )
 
-  await shell.execInProjectWithSpinner(projectName)(
+  await shell.execInProjectWithSpinner(state.projectFolder)(
     `yarn add @types/webpack-env -D`,
     '@types/webpack-env installed'
   )
 
-  await shell.execInProject(projectName)('rm README.md')
-  await generator.runActions(projectName, 'README.md')
-
   await json.update('tsconfig.json')(
     {
-      projectName,
+      projectName: state.projectFolder,
       message: 'Adding baseUrl to tsconfig.json',
       messageSuccess: 'Added baseUrl to tsconfig.json',
     },
@@ -81,10 +79,15 @@ export const initializeCreateReactApp = async (projectName: string) => {
   )
 }
 
-export const cleanPackageJson = (projectName: string) =>
+export const addReadme = async (state: IGeneratorState) => {
+  await shell.execInProject(state.projectFolder)('rm README.md')
+  await generator.runActions(state, 'README.md')
+}
+
+export const cleanPackageJson = (state: IGeneratorState) =>
   json.update('package.json')(
     {
-      projectName,
+      projectName: state.projectFolder,
       message: 'Cleaning up package.json',
       messageSuccess: 'package.json cleaned up',
     },
@@ -98,16 +101,16 @@ export const cleanPackageJson = (projectName: string) =>
     }
   )
 
-export const addEditorConfig = (projectName: string) =>
-  generator.runActions(projectName, '.editorconfig')
+export const addEditorConfig = (state: IGeneratorState) =>
+  generator.runActions(state, '.editorconfig')
 
-export const addBrowsersList = (projectName: string) =>
-  generator.runActions(projectName, '.browserslistrc')
+export const addBrowsersList = (state: IGeneratorState) =>
+  generator.runActions(state, '.browserslistrc')
 
-export const addPrettier = async (projectName: string) => {
+export const addPrettier = async (state: IGeneratorState) => {
   await json.update('package.json')(
     {
-      projectName,
+      projectName: state.projectFolder,
       message: 'Adding format to scripts',
       messageSuccess: 'format added to scripts',
     },
@@ -117,17 +120,17 @@ export const addPrettier = async (projectName: string) => {
       return jsonFile
     }
   )
-  await shell.execInProjectWithSpinner(projectName)(
+  await shell.execInProjectWithSpinner(state.projectFolder)(
     'yarn add prettier -D',
     'prettier installed'
   )
-  await generator.runActions(projectName, '.prettierrc')
+  await generator.runActions(state, '.prettierrc')
 }
 
-export const addStyleLint = async (projectName: string) => {
+export const addStyleLint = async (state: IGeneratorState) => {
   await json.update('package.json')(
     {
-      projectName,
+      projectName: state.projectFolder,
       message: 'Adding lint:css to scripts',
       messageSuccess: 'lint:css added to scripts',
     },
@@ -137,17 +140,17 @@ export const addStyleLint = async (projectName: string) => {
       return jsonFile
     }
   )
-  await shell.execInProjectWithSpinner(projectName)(
+  await shell.execInProjectWithSpinner(state.projectFolder)(
     'yarn add stylelint @strv/stylelint-config-styled-components stylelint-config-prettier -D',
     'stylelint installed'
   )
-  await generator.runActions(projectName, '.stylelintrc')
+  await generator.runActions(state, '.stylelintrc')
 }
 
-export const addEslint = async (projectName: string) => {
+export const addEslint = async (state: IGeneratorState) => {
   await json.update('package.json')(
     {
-      projectName,
+      projectName: state.projectFolder,
       message: 'Adding lint:ts to scripts',
       messageSuccess: 'lint:ts added to scripts',
     },
@@ -157,33 +160,33 @@ export const addEslint = async (projectName: string) => {
       return jsonFile
     }
   )
-  await shell.execInProjectWithSpinner(projectName)(
+  await shell.execInProjectWithSpinner(state.projectFolder)(
     'yarn add eslint @strv/eslint-config-react @strv/eslint-config-typescript @strv/stylelint-config-styled-components @typescript-eslint/parser eslint-config-prettier eslint-plugin-react-hooks -D',
     'eslint installed'
   )
-  await generator.runActions(projectName, '.eslintrc.js')
+  await generator.runActions(state, '.eslintrc.js')
 }
 
-export const addGitHooks = async (projectName: string) => {
-  await shell.execInProjectWithSpinner(projectName)(
+export const addGitHooks = async (state: IGeneratorState) => {
+  await shell.execInProjectWithSpinner(state.projectFolder)(
     'yarn add husky lint-staged @commitlint/cli @commitlint/config-conventional -D',
     'eslint installed'
   )
-  await generator.runActions(projectName, 'commitlint.config.js')
-  await generator.runActions(projectName, '.huskyrc')
-  await generator.runActions(projectName, '.lintstagedrc')
+  await generator.runActions(state, 'commitlint.config.js')
+  await generator.runActions(state, '.huskyrc')
+  await generator.runActions(state, '.lintstagedrc')
 }
 
-export const addBasicProjectFiles = async (projectName: string) => {
-  await shell.execInProjectWithSpinner(projectName)(
+export const addBasicProjectFiles = async (state: IGeneratorState) => {
+  await shell.execInProjectWithSpinner(state.projectFolder)(
     'rm -r src/*',
     'Old project structure removed'
   )
-  await shell.execInProjectWithSpinner(projectName)(
+  await shell.execInProjectWithSpinner(state.projectFolder)(
     'yarn add react-router react-router-dom styled-components && yarn add @types/react-router-dom @types/styled-components jest-styled-components @testing-library/react -D',
     'Essential libraries installed'
   )
 
-  await generator.runActions(projectName, '.env')
-  await generator.runActions(projectName, 'src')
+  await generator.runActions(state, '.env')
+  await generator.runActions(state, 'src')
 }
