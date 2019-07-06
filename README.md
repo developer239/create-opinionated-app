@@ -28,7 +28,7 @@ $ npx create-opinionated-react-app
 ## What Is Included
 
 - [x] Webpack, Babel and more setup from [Create React App](https://github.com/facebook/create-react-app)
-- ![TS](./typescript.svg?sanitize=true) Strong [Typescript](https://www.typescriptlang.org) types
+- [x] ![TS](./typescript.svg?sanitize=true) Strong [Typescript](https://www.typescriptlang.org) types
 
 #### Libraries
 
