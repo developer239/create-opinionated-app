@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/developer239/create-opinionated-react-app/tree/master.svg?style=svg)](https://circleci.com/gh/developer239/create-opinionated-react-app/tree/master)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/ff9bf164310d6fdaa9ac/test_coverage)](https://codeclimate.com/github/developer239/create-opinionated-react-app/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ff9bf164310d6fdaa9ac/maintainability)](https://codeclimate.com/github/developer239/create-opinionated-react-app/maintainability)
 [![Greenkeeper badge](https://badges.greenkeeper.io/developer239/create-opinionated-react-app.svg)](https://greenkeeper.io/)
