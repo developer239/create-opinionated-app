@@ -10,10 +10,6 @@ interface IOptions {
 
 type packageJsonType = any
 
-// const sleep = (ms: number) => new Promise(resolve => {
-//   setTimeout(resolve, ms)
-// })
-
 const update = async (
   { projectName, message, messageSuccess }: IOptions,
   updateFile: (packageJson: packageJsonType) => Promise<packageJsonType>
