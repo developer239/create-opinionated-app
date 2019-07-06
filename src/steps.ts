@@ -48,11 +48,17 @@ export const checkNpx = async () => {
   }
 }
 
-export const initializeCreateReactApp = (projectName: string) =>
-  shell.execWithSpinner(
+export const initializeCreateReactApp = async (projectName: string) => {
+  await shell.execWithSpinner(
     `npx create-react-app ${projectName} --typescript`,
     'Create React App initialized'
   )
+
+  await shell.execInProjectWithSpinner(projectName)(
+    `yarn remove @types/jest @types/node @types/react @types/react-dom && yarn add @types/jest @types/node @types/react @types/react-dom -D`,
+    '@types moved to devDependencies'
+  )
+}
 
 export const cleanPackageJson = (projectName: string) =>
   packageJson.update(
