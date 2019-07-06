@@ -1,4 +1,5 @@
 import chalk from 'chalk'
+import { prompt } from 'inquirer'
 import { logger } from 'src/services/log'
 import {
   cleanPackageJson,
@@ -10,6 +11,8 @@ import {
   addPrettier,
   addStyleLint,
   addGitHooks,
+  checkYarn,
+  addFilesToGit,
 } from 'src/steps'
 
 const main = async () => {
@@ -19,9 +22,15 @@ const main = async () => {
     )}.`
   )
 
+  const { projectName } = await prompt({
+    name: 'projectName',
+    message: 'How do you want to call your project?',
+  })
+
+  await checkYarn()
   await checkNpx()
 
-  const { projectName } = await initializeCreateReactApp()
+  await initializeCreateReactApp(projectName)
   await cleanPackageJson(projectName)
 
   await addEditorConfig(projectName)
@@ -30,6 +39,7 @@ const main = async () => {
   await addStyleLint(projectName)
   await addEslint(projectName)
   await addGitHooks(projectName)
+  await addFilesToGit(projectName)
 }
 
 main()
