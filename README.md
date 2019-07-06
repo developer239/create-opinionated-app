@@ -30,7 +30,14 @@ $ npx create-opinionated-react-app
 - [x] Webpack, Babel and more setup from [Create React App](https://github.com/facebook/create-react-app)
 - ![TS](./typescript.svg?sanitize=true) Strong [Typescript](https://www.typescriptlang.org) types
 
-### Code Quality Tools
+#### Libraries
+
+- [x] [Styled Components 💅](https://github.com/styled-components/styled-components) in every React application
+- [x] [React Router](https://github.com/ReactTraining/react-router)
+- [x] [React Testing Library 🐐](https://github.com/testing-library/react-testing-library)
+- [x] [Jest Styled Components](https://github.com/styled-components/jest-styled-components)
+
+#### Code Quality Tools
 
 - [x] [BrowserList](https://github.com/browserslist/browserslist)
 - [x] [EditorConfig](https://editorconfig.org/)

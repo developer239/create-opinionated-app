@@ -13,6 +13,7 @@ import {
   addGitHooks,
   checkYarn,
   addFilesToGit,
+  addBasicProjectFiles,
 } from 'src/steps'
 
 const main = async () => {
@@ -39,6 +40,7 @@ const main = async () => {
   await addStyleLint(projectName)
   await addEslint(projectName)
   await addGitHooks(projectName)
+  await addBasicProjectFiles(projectName)
   await addFilesToGit(projectName)
 }
 
