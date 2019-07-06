@@ -1,7 +1,7 @@
 import chalk from 'chalk'
 import { shell } from 'src/services/shell'
 import { logger } from 'src/services/log'
-import { packageJson } from 'src/services/packageJson'
+import { json } from 'src/services/json'
 import { generator } from 'src/generator'
 
 export const addFilesToGit = async (projectName: string) => {
@@ -54,6 +54,19 @@ export const initializeCreateReactApp = async (projectName: string) => {
     'Create React App initialized'
   )
 
+  json.update('tsconfig.json')(
+    {
+      projectName,
+      message: 'Adding baseUrl to tsconfig.json',
+      messageSuccess: 'Added baseUrl to tsconfig.json',
+    },
+    jsonFile => {
+      jsonFile.compilerOptions.baseUrl = 'src'
+
+      return jsonFile
+    }
+  )
+
   await shell.execInProjectWithSpinner(projectName)(
     `yarn remove @types/jest @types/node @types/react @types/react-dom && yarn add @types/jest @types/node @types/react @types/react-dom -D`,
     '@types moved to devDependencies'
@@ -61,19 +74,19 @@ export const initializeCreateReactApp = async (projectName: string) => {
 }
 
 export const cleanPackageJson = (projectName: string) =>
-  packageJson.update(
+  json.update('package.json')(
     {
       projectName,
       message: 'Cleaning up package.json',
       messageSuccess: 'package.json cleaned up',
     },
-    json => {
-      delete json.private
-      delete json.browserslist
-      delete json.eslintConfig
-      delete json.scripts.eject
+    jsonFile => {
+      delete jsonFile.private
+      delete jsonFile.browserslist
+      delete jsonFile.eslintConfig
+      delete jsonFile.scripts.eject
 
-      return json
+      return jsonFile
     }
   )
 
@@ -84,16 +97,16 @@ export const addBrowsersList = (projectName: string) =>
   generator.runActions(projectName, '.browserslistrc')
 
 export const addPrettier = async (projectName: string) => {
-  await packageJson.update(
+  await json.update('package.json')(
     {
       projectName,
       message: 'Adding format to scripts',
       messageSuccess: 'format added to scripts',
     },
-    json => {
-      json.scripts.format = "prettier --write '*/**/*.{ts,tsx,css,md,json}'"
+    jsonFile => {
+      jsonFile.scripts.format = "prettier --write '*/**/*.{ts,tsx,css,md,json}'"
 
-      return json
+      return jsonFile
     }
   )
   await shell.execInProjectWithSpinner(projectName)(
@@ -104,16 +117,16 @@ export const addPrettier = async (projectName: string) => {
 }
 
 export const addStyleLint = async (projectName: string) => {
-  await packageJson.update(
+  await json.update('package.json')(
     {
       projectName,
       message: 'Adding lint:css to scripts',
       messageSuccess: 'lint:css added to scripts',
     },
-    json => {
-      json.scripts['lint:css'] = "stylelint 'src/**/*.{ts,tsx}'"
+    jsonFile => {
+      jsonFile.scripts['lint:css'] = "stylelint 'src/**/*.{ts,tsx}'"
 
-      return json
+      return jsonFile
     }
   )
   await shell.execInProjectWithSpinner(projectName)(
@@ -124,16 +137,16 @@ export const addStyleLint = async (projectName: string) => {
 }
 
 export const addEslint = async (projectName: string) => {
-  await packageJson.update(
+  await json.update('package.json')(
     {
       projectName,
       message: 'Adding lint:ts to scripts',
       messageSuccess: 'lint:ts added to scripts',
     },
-    json => {
-      json.scripts['lint:ts'] = "eslint 'src/**/*.{ts,tsx}'"
+    jsonFile => {
+      jsonFile.scripts['lint:ts'] = "eslint 'src/**/*.{ts,tsx}'"
 
-      return json
+      return jsonFile
     }
   )
   await shell.execInProjectWithSpinner(projectName)(
@@ -151,4 +164,18 @@ export const addGitHooks = async (projectName: string) => {
   await generator.runActions(projectName, 'commitlint.config.js')
   await generator.runActions(projectName, '.huskyrc')
   await generator.runActions(projectName, '.lintstagedrc')
+}
+
+export const addBasicProjectFiles = async (projectName: string) => {
+  await shell.execInProjectWithSpinner(projectName)(
+    'rm -r src/*',
+    'Old project structure removed'
+  )
+  await shell.execInProjectWithSpinner(projectName)(
+    'yarn add react-router react-router-dom styled-components && yarn add @types/react-router-dom @types/styled-components jest-styled-components @testing-library/react -D',
+    'Essential libraries installed'
+  )
+
+  await generator.runActions(projectName, '.env')
+  await generator.runActions(projectName, 'src')
 }

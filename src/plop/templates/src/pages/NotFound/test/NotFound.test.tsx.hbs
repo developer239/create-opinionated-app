@@ -1,0 +1,14 @@
+import React from 'react'
+import 'jest-styled-components'
+
+import { App } from 'App'
+import { renderWithRouter } from 'testUtils/render'
+import { NOT_FOUND_TEST_ID } from '../index'
+
+describe('[pages] HomePage', () => {
+  it('should render correctly', () => {
+    const renderer = renderWithRouter(<App />, '/asdf1234')
+    const renderedElement = renderer.getByTestId(NOT_FOUND_TEST_ID)
+    expect(renderedElement).toBeTruthy()
+  })
+})
