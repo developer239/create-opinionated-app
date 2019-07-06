@@ -75,11 +75,16 @@ module.exports = plop => {
     filePath: '.lintstagedrc',
   })
 
-
   setGenerator(plop)({
     name: '.env',
     templatePath: 'templates/env.hbs',
     filePath: '.env',
+  })
+
+  setGenerator(plop)({
+    name: 'README.md',
+    templatePath: 'templates/readme.hbs',
+    filePath: 'README.md',
   })
 
   plop.setGenerator('src', {
