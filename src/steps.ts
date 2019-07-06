@@ -111,7 +111,7 @@ export const addStyleLint = async (projectName: string) => {
       messageSuccess: 'lint:css added to scripts',
     },
     json => {
-      json.scripts['lint:css'] = '"lint:css": "stylelint \'src/**/*.{ts,tsx}\'"'
+      json.scripts['lint:css'] = "stylelint 'src/**/*.{ts,tsx}'"
 
       return json
     }
