@@ -1,3 +1,19 @@
+# [1.2.0](https://github.com/developer239/create-opinionated-react-app/compare/v1.1.0...v1.2.0) (2019-07-06)
+
+
+### Bug Fixes
+
+* add slash after code climate exclude pattern ([b0718d9](https://github.com/developer239/create-opinionated-react-app/commit/b0718d9))
+* remove typo in stylelint command ([34c8077](https://github.com/developer239/create-opinionated-react-app/commit/34c8077))
+
+
+### Features
+
+* add basic project files generator ([ba7a9b8](https://github.com/developer239/create-opinionated-react-app/commit/ba7a9b8))
+* add check yarn and commit files to git steps ([9aae0fa](https://github.com/developer239/create-opinionated-react-app/commit/9aae0fa))
+* create basic README.md generator ([3b23f7c](https://github.com/developer239/create-opinionated-react-app/commit/3b23f7c))
+* move [@types](https://github.com/types) to devDependencies after CRA is initialized ([0fde0e9](https://github.com/developer239/create-opinionated-react-app/commit/0fde0e9))
+
 # [1.1.0](https://github.com/developer239/create-opinionated-react-app/compare/v1.0.2...v1.1.0) (2019-07-06)
 
 
