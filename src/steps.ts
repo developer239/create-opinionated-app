@@ -25,7 +25,7 @@ export const initializeCreateReactApp = async () => {
   })
 
   await shell.execWithSpinner(
-    `npx create-react-app ${projectName}`,
+    `npx create-react-app ${projectName} --typescript`,
     'Create React App initialized'
   )
 
