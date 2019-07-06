@@ -9,6 +9,7 @@ import {
   addEslint,
   addPrettier,
   addStyleLint,
+  addGitHooks,
 } from 'src/steps'
 
 const main = async () => {
@@ -28,6 +29,7 @@ const main = async () => {
   await addPrettier(projectName)
   await addStyleLint(projectName)
   await addEslint(projectName)
+  await addGitHooks(projectName)
 }
 
 main()

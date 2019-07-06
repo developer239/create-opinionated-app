@@ -114,3 +114,13 @@ export const addEslint = async (projectName: string) => {
   )
   await generator.runActions(projectName, '.eslintrc.js')
 }
+
+export const addGitHooks = async (projectName: string) => {
+  await shell.execInProjectWithSpinner(projectName)(
+    'yarn add husky lint-staged @commitlint/cli @commitlint/config-conventional -D',
+    'eslint installed'
+  )
+  await generator.runActions(projectName, 'commitlint.config.js')
+  await generator.runActions(projectName, '.huskyrc')
+  await generator.runActions(projectName, '.lintstagedrc')
+}

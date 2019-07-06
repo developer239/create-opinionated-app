@@ -50,4 +50,28 @@ module.exports = plop => {
     templatePath: 'templates/stylelintrc.hbs',
     filePath: '.stylelintrc',
   })
+
+  setGenerator(plop)({
+    name: 'commitlint.config.js',
+    templatePath: 'templates/commitlint.hbs',
+    filePath: 'commitlint.config.js',
+  })
+
+  setGenerator(plop)({
+    name: 'commitlint.config.js',
+    templatePath: 'templates/commitlint.hbs',
+    filePath: 'commitlint.config.js',
+  })
+
+  setGenerator(plop)({
+    name: '.huskyrc',
+    templatePath: 'templates/huskyrc.hbs',
+    filePath: '.huskyrc',
+  })
+
+  setGenerator(plop)({
+    name: '.lintstagedrc',
+    templatePath: 'templates/lintstagedrc.hbs',
+    filePath: '.lintstagedrc',
+  })
 }
