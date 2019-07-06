@@ -1,5 +1,6 @@
 import progress from 'rollup-plugin-progress'
 import typescript from 'rollup-plugin-typescript2'
+import copy from 'rollup-plugin-copy'
 
 const defaults = { compilerOptions: { declaration: true } }
 const override = { compilerOptions: { declaration: false } }
@@ -18,7 +19,20 @@ export default {
     typescript({
       tsconfigDefaults: defaults,
       tsconfig: 'tsconfig.json',
-      tsconfigOverride: override
-    })
-  ]
+      tsconfigOverride: override,
+      objectHashIgnoreUnknownHack: true,
+    }),
+    copy({
+      targets: [
+        {
+          src: './src/plop/templates/**/*',
+          dest: './lib/templates',
+        },
+        {
+          src: './src/plop/plopfile.js',
+          dest: './lib',
+        },
+      ],
+    }),
+  ],
 }

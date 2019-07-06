@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
+    "watch": "rollup -c -w",
     "format": "prettier --write '*/**/*.{ts,md,json}'",
     "lint:ts": "eslint 'src/**/*.ts'",
     "semantic-release": "semantic-release"
@@ -20,7 +21,9 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "inquirer": "^6.4.1",
+    "node-plop": "^0.19.0",
     "ora": "^3.4.0",
+    "plop": "^2.4.0",
     "shelljs": "^0.8.3"
   },
   "devDependencies": {
@@ -47,6 +50,7 @@
     "lint-staged": "^9.0.2",
     "prettier": "^1.18.2",
     "rollup": "^1.16.6",
+    "rollup-plugin-copy": "^3.0.0",
     "rollup-plugin-progress": "^1.1.1",
     "rollup-plugin-typescript2": "^0.21.2",
     "semantic-release": "^15.13.18",
