@@ -1,6 +1,14 @@
 import chalk from 'chalk'
 import { logger } from 'src/services/log'
-import { initializeCreateReactApp, installNpx } from 'src/steps'
+import {
+  cleanPackageJson,
+  addBrowsersList,
+  addEditorConfig,
+  initializeCreateReactApp,
+  checkNpx,
+  addEslint,
+  addPrettier,
+} from 'src/steps'
 
 const main = async () => {
   logger.info(
@@ -9,8 +17,15 @@ const main = async () => {
     )}.`
   )
 
-  await installNpx()
-  await initializeCreateReactApp()
+  await checkNpx()
+
+  const { projectName } = await initializeCreateReactApp()
+  await cleanPackageJson(projectName)
+
+  await addEditorConfig(projectName)
+  await addBrowsersList(projectName)
+  await addPrettier(projectName)
+  await addEslint(projectName)
 }
 
 main()

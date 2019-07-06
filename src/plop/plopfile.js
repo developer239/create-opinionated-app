@@ -20,4 +20,28 @@ const setGenerator = plop => ({ name, templatePath, filePath }) => {
   })
 }
 
-module.exports = plop => {}
+module.exports = plop => {
+  setGenerator(plop)({
+    name: 'editorconfig',
+    templatePath: 'templates/editorconfig.hbs',
+    filePath: '.editorconfig',
+  })
+
+  setGenerator(plop)({
+    name: 'browserslist',
+    templatePath: 'templates/browserslistrc.hbs',
+    filePath: '.browserslistrc',
+  })
+
+  setGenerator(plop)({
+    name: 'eslintrc',
+    templatePath: 'templates/eslintrc.hbs',
+    filePath: '.eslintrc.js',
+  })
+
+  setGenerator(plop)({
+    name: 'prettier',
+    templatePath: 'templates/prettierrc.hbs',
+    filePath: '.prettierrc',
+  })
+}
