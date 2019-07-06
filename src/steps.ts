@@ -50,10 +50,10 @@ export const cleanPackageJson = (projectName: string) =>
   )
 
 export const addEditorConfig = (projectName: string) =>
-  generator.runActions(projectName, 'editorconfig')
+  generator.runActions(projectName, '.editorconfig')
 
 export const addBrowsersList = (projectName: string) =>
-  generator.runActions(projectName, 'browserslist')
+  generator.runActions(projectName, '.browserslistrc')
 
 export const addPrettier = async (projectName: string) => {
   await packageJson.update(
@@ -72,7 +72,7 @@ export const addPrettier = async (projectName: string) => {
     'yarn add prettier -D',
     'prettier installed'
   )
-  await generator.runActions(projectName, 'prettier')
+  await generator.runActions(projectName, '.prettierrc')
 }
 
 export const addStyleLint = async (projectName: string) => {
@@ -92,7 +92,7 @@ export const addStyleLint = async (projectName: string) => {
     'yarn add stylelint @strv/stylelint-config-styled-components stylelint-config-prettier -D',
     'stylelint installed'
   )
-  await generator.runActions(projectName, 'stylelint')
+  await generator.runActions(projectName, '.stylelintrc')
 }
 
 export const addEslint = async (projectName: string) => {
@@ -112,5 +112,5 @@ export const addEslint = async (projectName: string) => {
     'yarn add eslint @strv/eslint-config-react @strv/eslint-config-typescript @strv/stylelint-config-styled-components @typescript-eslint/parser eslint-config-prettier eslint-plugin-react-hooks -D',
     'eslint installed'
   )
-  await generator.runActions(projectName, 'eslintrc')
+  await generator.runActions(projectName, '.eslintrc.js')
 }
