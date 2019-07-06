@@ -1,5 +1,3 @@
-import fs from 'fs'
-import path from 'path'
 import chalk from 'chalk'
 import { prompt } from 'inquirer'
 import { IGeneratorState } from './index.types'
@@ -20,6 +18,7 @@ import {
   addBasicProjectFiles,
   addReadme,
 } from 'src/steps'
+import { validator } from 'src/services/validator'
 
 const main = async () => {
   logger.info(
@@ -31,21 +30,7 @@ const main = async () => {
   const { projectFolder } = await prompt({
     name: 'projectFolder',
     message: 'How do you want to call your project?',
-    validate: (value: string) => {
-      const validateName = require('validate-npm-package-name')
-
-      const { errors } = validateName(value)
-
-      if (errors) {
-        return 'Invalid name.'
-      }
-
-      if (fs.existsSync(path.resolve(value))) {
-        return 'Project with this name already exists.'
-      }
-
-      return true
-    },
+    validate: validator.validateProjectFolder,
   })
   const projectName = words.toCapitalized(projectFolder)
 
