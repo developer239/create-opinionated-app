@@ -58,6 +58,12 @@ export const initializeCreateReactApp = async (projectName: string) => {
     `yarn remove @types/jest @types/node @types/react @types/react-dom && yarn add @types/jest @types/node @types/react @types/react-dom -D`,
     '@types moved to devDependencies'
   )
+
+  await shell.execInProjectWithSpinner(projectName)(
+    `yarn add @types/webpack-env -D`,
+    '@types/webpack-env installed'
+  )
+
   await shell.execInProject(projectName)('rm README.md')
   await generator.runActions(projectName, 'README.md')
 
