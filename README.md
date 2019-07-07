@@ -56,7 +56,7 @@ $ npx create-opinionated-react-app
 
 ## Why?
 
-As die-hard react developer I had to use Angular to help out our client and I was surprised how easy it is to bootstrap new Angular application. I can imagine that VueJs is so popular for a similar reason.
+As die-hard React developer I had to use Angular to help out our client and I was surprised how easy it is to bootstrap new Angular application. I can imagine that VueJs is so popular for a similar reason.
 
 Then I realized that React community does not have any standard when it comes to bootstrapping a new application.
 
