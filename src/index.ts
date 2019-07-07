@@ -34,12 +34,13 @@ const main = async () => {
   )
 
   // 1. Project name and folder
-  const { projectFolder } = await prompt({
+  const { projectFolder: rawProjectFolder } = await prompt({
     name: 'projectFolder',
     message: 'How do you want to call your project?',
     validate: validator.validateProjectFolder,
   })
-  const projectName = words.toCapitalized(projectFolder)
+  const projectFolder = rawProjectFolder.toLowerCase()
+  const projectName = words.toCapitalized(rawProjectFolder)
 
   // 2. Optional Router
   const { isRouter } = await prompt({
