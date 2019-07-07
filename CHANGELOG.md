@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/developer239/create-opinionated-react-app/compare/v1.4.1...v1.5.0) (2019-07-07)
+
+
+### Features
+
+* make logger messages nicer ([6aeeaad](https://github.com/developer239/create-opinionated-react-app/commit/6aeeaad))
+
 ## [1.4.1](https://github.com/developer239/create-opinionated-react-app/compare/v1.4.0...v1.4.1) (2019-07-07)
 
 
