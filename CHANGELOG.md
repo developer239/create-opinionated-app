@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/developer239/create-opinionated-react-app/compare/v1.5.1...v1.5.2) (2019-07-07)
+
+
+### Bug Fixes
+
+* check existing folder by using lower case value in name validator ([49752e3](https://github.com/developer239/create-opinionated-react-app/commit/49752e3))
+
 ## [1.5.1](https://github.com/developer239/create-opinionated-react-app/compare/v1.5.0...v1.5.1) (2019-07-07)
 
 
