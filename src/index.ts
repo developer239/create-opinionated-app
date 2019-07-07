@@ -143,6 +143,25 @@ const main = async () => {
   }
 
   await addFilesToGit(generatorState)
+
+  logger.info(
+    chalk.green(
+      ` _____ _   _ ______ _____  _____ _____ _____ 
+/  ___| | | /  __ \\/  __ \\|  ___/  ___/  ___|
+\\ \`--.| | | | /  \\/| /  \\/| |__ \\ \`--.\\ \`--. 
+ \`--. \\ | | | |    | |    |  __| \`--. \\\`--. \\
+/\\__/ / |_| | \\__/\\| \\__/\\| |___/\\__/ /\\__/ /
+\\____/ \\___/ \\____/ \\____/\\____/\\____/\\____/ 
+`
+    )
+  )
+  logger.info(
+    chalk.bold(
+      `Your new application lives in ${chalk.underline.green(
+        `./${projectFolder}`
+      )}`
+    )
+  )
 }
 
 main()
