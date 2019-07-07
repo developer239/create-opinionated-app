@@ -81,6 +81,12 @@ module.exports = plop => {
     filePath: 'README.md',
   })
 
+  setGenerator(plop)({
+    name: 'circleci',
+    templatePath: 'templates/circleci/config.yml.hbs',
+    filePath: '.circleci/config.yml',
+  })
+
   plop.setGenerator('docker', {
     description: `create basic docker files`,
     actions: [

@@ -193,3 +193,6 @@ export const addBasicProjectFiles = async (state: IGeneratorState) => {
 
 export const addDocker = (state: IGeneratorState) =>
   generator.runActions(state, 'docker')
+
+export const addCircleCiConfig = (state: IGeneratorState) =>
+  generator.runActions(state, 'circleci')

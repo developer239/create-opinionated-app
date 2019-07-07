@@ -18,6 +18,7 @@ import {
   addBasicProjectFiles,
   addReadme,
   addDocker,
+  addCircleCiConfig,
 } from 'src/steps'
 import { validator } from 'src/services/validator'
 
@@ -44,10 +45,26 @@ const main = async () => {
     choices: [{ name: 'yes', value: true }, { name: 'no', value: false }],
   })
 
+  // 2. Optional CI config
+  const { ciService } = await prompt({
+    name: 'ciService',
+    type: 'list',
+    message: 'What continuous integration service do you want to use?',
+    choices: [
+      { name: 'CircleCi', value: 'circleCi' },
+      { name: 'none 🚫', value: 'none' },
+    ],
+  })
+
   const generatorState: IGeneratorState = {
     projectFolder,
     projectName,
     isDocker,
+    ciService,
+  }
+
+  if (ciService === 'circleCi') {
+    await addCircleCiConfig(generatorState)
   }
 
   await checkYarn()

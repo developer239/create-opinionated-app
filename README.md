@@ -49,6 +49,7 @@ $ npx create-opinionated-react-app
 #### Optional Features
 
 - [x] 🐳 [Docker](https://github.com/docker)
+- [x] Basic [CircleCi](https://circleci.com) configuration
 
 ## Why?
 
