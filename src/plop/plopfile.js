@@ -196,6 +196,13 @@ module.exports = plop => {
         path: path.join(process.cwd(), '{{ projectFolder }}', 'src', 'index.tsx'),
       },
 
+      // Tests Setup File
+      {
+        type: 'add',
+        templateFile: 'templates/src/setupTests.ts.hbs',
+        path: path.join(process.cwd(), '{{ projectFolder }}', 'src', 'setupTests.ts'),
+      },
+
       // d.ts Env File
       {
         type: 'add',
