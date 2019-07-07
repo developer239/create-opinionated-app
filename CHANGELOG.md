@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/developer239/create-opinionated-react-app/compare/v1.5.0...v1.5.1) (2019-07-07)
+
+
+### Bug Fixes
+
+* create-react-app name can no longer container capital letters ([466d0f3](https://github.com/developer239/create-opinionated-react-app/commit/466d0f3))
+
 # [1.5.0](https://github.com/developer239/create-opinionated-react-app/compare/v1.4.1...v1.5.0) (2019-07-07)
 
 
