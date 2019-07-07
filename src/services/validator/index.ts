@@ -10,7 +10,7 @@ const validateProjectFolder = (value: string) => {
     return 'Invalid name.'
   }
 
-  if (fs.existsSync(path.resolve(value))) {
+  if (fs.existsSync(path.resolve(value.toLowerCase()))) {
     return 'Project with this name already exists.'
   }
 
