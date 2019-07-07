@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/developer239/create-opinionated-react-app/compare/v1.3.0...v1.3.1) (2019-07-07)
+
+
+### Bug Fixes
+
+* include forgotten test stage in circle ci config ([e022b29](https://github.com/developer239/create-opinionated-react-app/commit/e022b29))
+
 # [1.3.0](https://github.com/developer239/create-opinionated-react-app/compare/v1.2.0...v1.3.0) (2019-07-07)
 
 
