@@ -19,6 +19,7 @@ import {
   addReadme,
   addDocker,
   addCircleCiConfig,
+  addHerokuConfig,
 } from 'src/steps'
 import { validator } from 'src/services/validator'
 
@@ -45,7 +46,7 @@ const main = async () => {
     choices: [{ name: 'yes', value: true }, { name: 'no', value: false }],
   })
 
-  // 2. Optional CI config
+  // 3. CI
   const { ciService } = await prompt({
     name: 'ciService',
     type: 'list',
@@ -56,15 +57,22 @@ const main = async () => {
     ],
   })
 
+  // 4. CD
+  const { cdService } = await prompt({
+    name: 'cdService',
+    type: 'list',
+    message: 'What hosting do you want to use?',
+    choices: [
+      { name: 'Heroku', value: 'heroku' },
+      { name: 'none 🚫', value: 'none' },
+    ],
+  })
+
   const generatorState: IGeneratorState = {
     projectFolder,
     projectName,
     isDocker,
-    ciService,
-  }
-
-  if (ciService === 'circleCi') {
-    await addCircleCiConfig(generatorState)
+    isHeroku: cdService === 'heroku',
   }
 
   await checkYarn()
@@ -73,6 +81,14 @@ const main = async () => {
   await initializeCreateReactApp(generatorState)
   await cleanPackageJson(generatorState)
   await addReadme(generatorState)
+
+  if (ciService === 'circleCi') {
+    await addCircleCiConfig(generatorState)
+  }
+
+  if (cdService === 'heroku') {
+    await addHerokuConfig(generatorState)
+  }
 
   if (isDocker) {
     await addDocker(generatorState)

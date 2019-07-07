@@ -196,3 +196,24 @@ export const addDocker = (state: IGeneratorState) =>
 
 export const addCircleCiConfig = (state: IGeneratorState) =>
   generator.runActions(state, 'circleci')
+
+export const addHerokuConfig = async (state: IGeneratorState) => {
+  await shell.execInProjectWithSpinner(state.projectFolder)(
+    'yarn add serve',
+    'serve server added'
+  )
+  await json.update('package.json')(
+    {
+      projectName: state.projectFolder,
+      message: 'Adding scripts for integration with Heroku',
+      messageSuccess: 'Added prod and heroku-postbuild scripts',
+    },
+    jsonFile => {
+      jsonFile.scripts.prod = 'node node_modules/.bin/serve -s build'
+      jsonFile.scripts['heroku-postbuild'] = 'npm run build'
+
+      return jsonFile
+    }
+  )
+  await generator.runActions(state, 'heroku')
+}

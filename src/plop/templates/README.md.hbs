@@ -11,14 +11,23 @@ Run React App:
 
 ## Useful Commands
 
+{{#if isHeroku}}
+- `yarn prod` Run production server
+{{/if}}
 - `yarn start` Start development server
 - `yarn build` Build static files of production application
 - `yarn test` Run tests
 - `yarn format` Prettify source code
 - `yarn lint:ts` Show ts errors
 - `yarn lint:css` Show css errors
+{{#if isHeroku}}
 
+## Deployment on Heroku
+
+This application is Heroku ready. You will probably need to set `config:set NPM_CONFIG_PRODUCTION=false` in your Heroku your config. Everything else is prepared and ready to go.
+{{/if}}
 {{#if isDocker}}
+
 ## 🐳 Docker
 
 This project has minimal docker setup.

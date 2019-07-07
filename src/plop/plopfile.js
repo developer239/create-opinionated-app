@@ -82,6 +82,12 @@ module.exports = plop => {
   })
 
   setGenerator(plop)({
+    name: 'heroku',
+    templatePath: 'templates/Procfile.hbs',
+    filePath: 'Procfile',
+  })
+
+  setGenerator(plop)({
     name: 'circleci',
     templatePath: 'templates/circleci/config.yml.hbs',
     filePath: '.circleci/config.yml',
