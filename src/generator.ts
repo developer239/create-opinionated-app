@@ -11,7 +11,7 @@ const runActions = async (
   generatorName: string
 ) => {
   const spinner = ora()
-  spinner.start(`Creating ${generatorName}`)
+  spinner.start(`[generator] running ${generatorName}`)
   const { failures } = await nodePlopGenerator
     .getGenerator(generatorName)
     .runActions(generatorState)
@@ -22,7 +22,7 @@ const runActions = async (
     )
   }
 
-  spinner.succeed(`${generatorName} created`)
+  spinner.succeed(`[generator] create ${generatorName}`)
 }
 
 export const generator = {
