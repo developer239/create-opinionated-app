@@ -1,3 +1,19 @@
+# [1.3.0](https://github.com/developer239/create-opinionated-react-app/compare/v1.2.0...v1.3.0) (2019-07-07)
+
+
+### Bug Fixes
+
+* add checkbox before typescript in included items list ([3a6e793](https://github.com/developer239/create-opinionated-react-app/commit/3a6e793))
+* install @types/webpack-env and remove [@ts-ignore](https://github.com/ts-ignore) in src/index.tsx ([07e7f53](https://github.com/developer239/create-opinionated-react-app/commit/07e7f53))
+
+
+### Features
+
+* create basic heroku generator ([cac1fa6](https://github.com/developer239/create-opinionated-react-app/commit/cac1fa6))
+* create conditional docker 🐳 generator ([18ea44b](https://github.com/developer239/create-opinionated-react-app/commit/18ea44b))
+* create optional circleci generator ([07f295c](https://github.com/developer239/create-opinionated-react-app/commit/07f295c))
+* use plop magic to pass variables to templates ([d0c5190](https://github.com/developer239/create-opinionated-react-app/commit/d0c5190))
+
 # [1.2.0](https://github.com/developer239/create-opinionated-react-app/compare/v1.1.0...v1.2.0) (2019-07-06)
 
 
