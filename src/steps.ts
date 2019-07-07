@@ -207,6 +207,14 @@ export const addRedux = async (state: IGeneratorState) => {
   await generator.runActions(state, 'redux')
 }
 
+export const addApollo = async (state: IGeneratorState) => {
+  await shell.execInProjectWithSpinner(state.projectFolder)(
+    'yarn add apollo-boost react-apollo graphql',
+    'Apollo installed'
+  )
+  await generator.runActions(state, 'apollo')
+}
+
 export const addDocker = (state: IGeneratorState) =>
   generator.runActions(state, 'docker')
 

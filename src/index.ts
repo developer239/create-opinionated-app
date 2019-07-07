@@ -22,6 +22,7 @@ import {
   addHerokuConfig,
   addReactRouter,
   addRedux,
+  addApollo,
 } from 'src/steps'
 import { validator } from 'src/services/validator'
 
@@ -55,6 +56,7 @@ const main = async () => {
     message: 'What library do you want to use to manage state?',
     choices: [
       { name: 'Redux', value: 'redux' },
+      { name: 'Apollo GraphQL', value: 'apollo' },
       { name: 'none 🚫', value: 'none' },
     ],
   })
@@ -94,7 +96,9 @@ const main = async () => {
     projectName,
     isDocker,
     isRouter,
+    // TODO: Write handle bars helpers for better conditional rendering
     isRedux: stateManagementType === 'redux',
+    isApollo: stateManagementType === 'apollo',
     isHeroku: cdService === 'heroku',
   }
 
@@ -131,6 +135,10 @@ const main = async () => {
 
   if (stateManagementType === 'redux') {
     await addRedux(generatorState)
+  }
+
+  if (stateManagementType === 'apollo') {
+    await addApollo(generatorState)
   }
 
   await addFilesToGit(generatorState)

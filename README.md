@@ -49,6 +49,7 @@ $ npx create-opinionated-react-app
 
 - [x] [React Router](https://github.com/ReactTraining/react-router)
 - [x] [Redux](https://github.com/reduxjs/redux)
+- [x] [React Apollo](https://github.com/apollographql/react-apollo)
 - [x] 🐳 [Docker](https://github.com/docker)
 - [x] Minimal [CircleCi](https://circleci.com) configuration
 - [x] Minimal [Heroku](https://heroku.com) configuration

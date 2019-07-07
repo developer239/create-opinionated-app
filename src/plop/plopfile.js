@@ -145,6 +145,17 @@ module.exports = plop => {
     ],
   })
 
+  plop.setGenerator('apollo', {
+    description: `create basic react apollo files`,
+    actions: [
+      {
+        type: 'add',
+        templateFile: 'templates/src/apolloClient.ts.hbs',
+        path: path.join(process.cwd(), '{{ projectFolder }}', 'src', 'apolloClient.ts'),
+      },
+    ],
+  })
+
   plop.setGenerator('redux', {
     description: `create basic redux files`,
     actions: [

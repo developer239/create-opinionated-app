@@ -7,6 +7,10 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { configureStore } from 'store'
 {{/if}}
+{{#if isApollo}}
+import { ApolloProvider } from 'react-apollo'
+import { client } from 'apolloClient'
+{{/if}}
 import { App } from 'App'
 
 {{#if isRedux}}
@@ -21,10 +25,16 @@ const renderApp = () => {
     {{#if isRouter}}
     <Router>
     {{/if}}
+    {{#if isApollo}}
+    <ApolloProvider client={client}>
+    {{/if}}
       <App />
+    {{#if isApollo}}
+    </ApolloProvider>
+    {{/if}}
     {{#if isRouter}}
     </Router>
-    {{/if}},
+    {{/if}}
     {{#if isRedux}}
     </Provider>
     {{/if}},

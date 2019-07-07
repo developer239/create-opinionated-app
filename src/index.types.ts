@@ -4,5 +4,6 @@ export interface IGeneratorState {
   isDocker: boolean
   isRouter: boolean
   isRedux: boolean
+  isApollo: boolean
   isHeroku: boolean
 }
