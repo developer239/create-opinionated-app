@@ -3,16 +3,30 @@ import ReactDOM from 'react-dom'
 {{#if isRouter}}
 import { BrowserRouter as Router } from 'react-router-dom'
 {{/if}}
+{{#if isRedux}}
+import { Provider } from 'react-redux'
+import { configureStore } from 'store'
+{{/if}}
 import { App } from 'App'
+
+{{#if isRedux}}
+export const store = configureStore()
+{{/if}}
 
 const renderApp = () => {
   ReactDOM.render(
+    {{#if isRedux}}
+    <Provider store={store}>
+    {{/if}}
     {{#if isRouter}}
     <Router>
     {{/if}}
       <App />
     {{#if isRouter}}
     </Router>
+    {{/if}},
+    {{#if isRedux}}
+    </Provider>
     {{/if}},
     document.getElementById('root')
   )

@@ -21,6 +21,7 @@ import {
   addCircleCiConfig,
   addHerokuConfig,
   addReactRouter,
+  addRedux,
 } from 'src/steps'
 import { validator } from 'src/services/validator'
 
@@ -47,7 +48,18 @@ const main = async () => {
     choices: [{ name: 'yes', value: true }, { name: 'no', value: false }],
   })
 
-  // 3. Optional Docker
+  // 3. Optional Data Flow
+  const { stateManagementType } = await prompt({
+    name: 'stateManagementType',
+    type: 'list',
+    message: 'What library do you want to use to manage state?',
+    choices: [
+      { name: 'Redux', value: 'redux' },
+      { name: 'none 🚫', value: 'none' },
+    ],
+  })
+
+  // 4. Optional Docker
   const { isDocker } = await prompt({
     name: 'isDocker',
     type: 'list',
@@ -55,7 +67,7 @@ const main = async () => {
     choices: [{ name: 'yes', value: true }, { name: 'no', value: false }],
   })
 
-  // 4. CI
+  // 5. CI
   const { ciService } = await prompt({
     name: 'ciService',
     type: 'list',
@@ -66,7 +78,7 @@ const main = async () => {
     ],
   })
 
-  // 5. CD
+  // 6. CD
   const { cdService } = await prompt({
     name: 'cdService',
     type: 'list',
@@ -82,6 +94,7 @@ const main = async () => {
     projectName,
     isDocker,
     isRouter,
+    isRedux: stateManagementType === 'redux',
     isHeroku: cdService === 'heroku',
   }
 
@@ -111,9 +124,15 @@ const main = async () => {
   await addEslint(generatorState)
   await addGitHooks(generatorState)
   await addBasicProjectFiles(generatorState)
+
   if (isRouter) {
     await addReactRouter(generatorState)
   }
+
+  if (stateManagementType === 'redux') {
+    await addRedux(generatorState)
+  }
+
   await addFilesToGit(generatorState)
 }
 

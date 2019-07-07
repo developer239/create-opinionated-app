@@ -48,6 +48,7 @@ $ npx create-opinionated-react-app
 #### Optional Features
 
 - [x] [React Router](https://github.com/ReactTraining/react-router)
+- [x] [Redux](https://github.com/reduxjs/redux)
 - [x] 🐳 [Docker](https://github.com/docker)
 - [x] Minimal [CircleCi](https://circleci.com) configuration
 - [x] Minimal [Heroku](https://heroku.com) configuration

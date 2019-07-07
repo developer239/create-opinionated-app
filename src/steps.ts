@@ -199,6 +199,14 @@ export const addReactRouter = async (state: IGeneratorState) => {
   await generator.runActions(state, 'router')
 }
 
+export const addRedux = async (state: IGeneratorState) => {
+  await shell.execInProjectWithSpinner(state.projectFolder)(
+    'yarn add redux react-redux && yarn add @types/redux @types/react-redux -D',
+    'Redux installed'
+  )
+  await generator.runActions(state, 'redux')
+}
+
 export const addDocker = (state: IGeneratorState) =>
   generator.runActions(state, 'docker')
 

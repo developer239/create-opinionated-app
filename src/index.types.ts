@@ -3,5 +3,6 @@ export interface IGeneratorState {
   projectName: string
   isDocker: boolean
   isRouter: boolean
+  isRedux: boolean
   isHeroku: boolean
 }

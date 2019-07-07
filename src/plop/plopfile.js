@@ -145,6 +145,22 @@ module.exports = plop => {
     ],
   })
 
+  plop.setGenerator('redux', {
+    description: `create basic redux files`,
+    actions: [
+      {
+        type: 'add',
+        templateFile: 'templates/src/store/index.ts.hbs',
+        path: path.join(process.cwd(), '{{ projectFolder }}', 'src', 'store', 'index.ts'),
+      },
+      {
+        type: 'add',
+        templateFile: 'templates/src/store/reducer.ts.hbs',
+        path: path.join(process.cwd(), '{{ projectFolder }}', 'src', 'store', 'reducer.ts'),
+      },
+    ],
+  })
+
   plop.setGenerator('src', {
     description: `create basic source files`,
     actions: [
