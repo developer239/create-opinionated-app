@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/developer239/create-opinionated-react-app/compare/v1.4.0...v1.4.1) (2019-07-07)
+
+
+### Bug Fixes
+
+* use nicer typescript badge in generated README ([c94cc21](https://github.com/developer239/create-opinionated-react-app/commit/c94cc21))
+
 # [1.4.0](https://github.com/developer239/create-opinionated-react-app/compare/v1.3.1...v1.4.0) (2019-07-07)
 
 
