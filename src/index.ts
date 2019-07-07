@@ -42,7 +42,7 @@ const main = async () => {
   const projectFolder = rawProjectFolder.toLowerCase()
   const projectName = words.toCapitalized(rawProjectFolder)
 
-  // 2. Optional Router
+  // 2. Router
   const { isRouter } = await prompt({
     name: 'isRouter',
     type: 'list',
@@ -50,9 +50,9 @@ const main = async () => {
     choices: [{ name: 'yes', value: true }, { name: 'no', value: false }],
   })
 
-  // 3. Optional Data Flow
-  const { stateManagementType } = await prompt({
-    name: 'stateManagementType',
+  // 3. State Management
+  const { stateManagement } = await prompt({
+    name: 'stateManagement',
     type: 'list',
     message: 'What library do you want to use to manage state?',
     choices: [
@@ -62,7 +62,7 @@ const main = async () => {
     ],
   })
 
-  // 4. Optional Docker
+  // 4. Docker
   const { isDocker } = await prompt({
     name: 'isDocker',
     type: 'list',
@@ -98,8 +98,8 @@ const main = async () => {
     isDocker,
     isRouter,
     // TODO: Write handle bars helpers for better conditional rendering
-    isRedux: stateManagementType === 'redux',
-    isApollo: stateManagementType === 'apollo',
+    isRedux: stateManagement === 'redux',
+    isApollo: stateManagement === 'apollo',
     isHeroku: cdService === 'heroku',
   }
 
@@ -134,11 +134,11 @@ const main = async () => {
     await addReactRouter(generatorState)
   }
 
-  if (stateManagementType === 'redux') {
+  if (stateManagement === 'redux') {
     await addRedux(generatorState)
   }
 
-  if (stateManagementType === 'apollo') {
+  if (stateManagement === 'apollo') {
     await addApollo(generatorState)
   }
 
