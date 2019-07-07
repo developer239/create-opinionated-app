@@ -11,11 +11,11 @@ Run React App:
 
 ## Useful Commands
 
+- `yarn start` Start development server
 {{#if isHeroku}}
+- `yarn build` Build static files of production application
 - `yarn prod` Run production server
 {{/if}}
-- `yarn start` Start development server
-- `yarn build` Build static files of production application
 - `yarn test` Run tests
 - `yarn format` Prettify source code
 - `yarn lint:ts` Show ts errors
@@ -24,7 +24,14 @@ Run React App:
 
 ## Deployment on Heroku
 
-This application is Heroku ready. You will probably need to set `config:set NPM_CONFIG_PRODUCTION=false` in your Heroku your config. Everything else is prepared and ready to go.
+This application is Heroku ready.
+
+1. Install Heroku CLI: `brew tap heroku/brew && brew install heroku`
+2. Login: `heroku login`
+3. Go to your app folder: `cd ~/{{ projectFolder }}`
+4. Create new project on Heroku `heroku create`
+
+You can find more information [here](https://devcenter.heroku.com/articles/heroku-cli).
 {{/if}}
 {{#if isDocker}}
 
