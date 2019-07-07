@@ -1,15 +1,9 @@
 // eslint-disable-next-line
 const path = require('path')
 
-const projectFolderPrompt = {
-  type: 'input',
-  name: 'projectFolder',
-}
-
 const setGenerator = plop => ({ name, templatePath, filePath }) => {
   plop.setGenerator(name, {
     description: `Create ${name}`,
-    prompts: [projectFolderPrompt],
     actions: [
       {
         type: 'add',
@@ -87,9 +81,24 @@ module.exports = plop => {
     filePath: 'README.md',
   })
 
+  plop.setGenerator('docker', {
+    description: `create basic docker files`,
+    actions: [
+      {
+        type: 'add',
+        templateFile: 'templates/docker-compose.yml.hbs',
+        path: path.join(process.cwd(), '{{ projectFolder }}', 'docker-compose.yml'),
+      },
+      {
+        type: 'add',
+        templateFile: 'templates/Dockerfile.hbs',
+        path: path.join(process.cwd(), '{{ projectFolder }}', 'Dockerfile'),
+      },
+    ],
+  })
+
   plop.setGenerator('src', {
     description: `create basic source files`,
-    prompts: [projectFolderPrompt],
     actions: [
       // Layout Component
       {

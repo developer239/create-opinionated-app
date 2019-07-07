@@ -17,6 +17,7 @@ import {
   addFilesToGit,
   addBasicProjectFiles,
   addReadme,
+  addDocker,
 } from 'src/steps'
 import { validator } from 'src/services/validator'
 
@@ -27,6 +28,7 @@ const main = async () => {
     )}.`
   )
 
+  // 1. Project name and folder
   const { projectFolder } = await prompt({
     name: 'projectFolder',
     message: 'How do you want to call your project?',
@@ -34,9 +36,18 @@ const main = async () => {
   })
   const projectName = words.toCapitalized(projectFolder)
 
+  // 2. Optional Docker
+  const { isDocker } = await prompt({
+    name: 'isDocker',
+    type: 'list',
+    message: 'Do you want to generate basic docker 🐳 files?',
+    choices: [{ name: 'yes', value: true }, { name: 'no', value: false }],
+  })
+
   const generatorState: IGeneratorState = {
     projectFolder,
     projectName,
+    isDocker,
   }
 
   await checkYarn()
@@ -45,6 +56,10 @@ const main = async () => {
   await initializeCreateReactApp(generatorState)
   await cleanPackageJson(generatorState)
   await addReadme(generatorState)
+
+  if (isDocker) {
+    await addDocker(generatorState)
+  }
 
   await addEditorConfig(generatorState)
   await addBrowsersList(generatorState)

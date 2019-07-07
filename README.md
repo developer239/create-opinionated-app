@@ -29,9 +29,6 @@ $ npx create-opinionated-react-app
 
 - [x] Webpack, Babel and more setup from [Create React App](https://github.com/facebook/create-react-app)
 - [x] ![TS](./typescript.svg?sanitize=true) Strong [Typescript](https://www.typescriptlang.org) types
-
-#### Libraries
-
 - [x] 💅 [Styled Components](https://github.com/styled-components/styled-components) for every React application
 - [x] [React Router](https://github.com/ReactTraining/react-router)
 - [x] 🐐 [React Testing Library](https://github.com/testing-library/react-testing-library)
@@ -42,12 +39,16 @@ $ npx create-opinionated-react-app
 - [x] [BrowserList](https://github.com/browserslist/browserslist)
 - [x] [EditorConfig](https://editorconfig.org/)
 - [x] [Eslint](https://github.com/eslint/eslint)
-- [x] [STRV Code Quality Tools](https://github.com/strvcom/code-quality-tools)
+- [x] [STRV Code Quality Tools](https://github.com/strvcom/code-quality-tools) 💪
 - [x] [Prettier](https://prettier.io)
 - [x] [Stylelint](https://stylelint.io/)
 - [x] 🐶 [Husky](https://github.com/typicode/husky)
 - [x] [CommitLint](https://github.com/conventional-changelog/commitlint)
 - [x] [LintStaged](https://github.com/okonet/lint-staged)
+
+#### Optional Features
+
+- [x] 🐳 [Docker](https://github.com/docker)
 
 ## Why?
 

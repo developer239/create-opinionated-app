@@ -190,3 +190,6 @@ export const addBasicProjectFiles = async (state: IGeneratorState) => {
   await generator.runActions(state, '.env')
   await generator.runActions(state, 'src')
 }
+
+export const addDocker = (state: IGeneratorState) =>
+  generator.runActions(state, 'docker')
