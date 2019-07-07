@@ -30,7 +30,6 @@ $ npx create-opinionated-react-app
 - [x] Webpack, Babel and more setup from [Create React App](https://github.com/facebook/create-react-app)
 - [x] ![TS](./typescript.svg?sanitize=true) Strong [Typescript](https://www.typescriptlang.org) types
 - [x] 💅 [Styled Components](https://github.com/styled-components/styled-components) for every React application
-- [x] [React Router](https://github.com/ReactTraining/react-router)
 - [x] 🐐 [React Testing Library](https://github.com/testing-library/react-testing-library)
 - [x] [Jest Styled Components](https://github.com/styled-components/jest-styled-components)
 
@@ -48,6 +47,7 @@ $ npx create-opinionated-react-app
 
 #### Optional Features
 
+- [x] [React Router](https://github.com/ReactTraining/react-router)
 - [x] 🐳 [Docker](https://github.com/docker)
 - [x] Minimal [CircleCi](https://circleci.com) configuration
 - [x] Minimal [Heroku](https://heroku.com) configuration

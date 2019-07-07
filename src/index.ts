@@ -20,6 +20,7 @@ import {
   addDocker,
   addCircleCiConfig,
   addHerokuConfig,
+  addReactRouter,
 } from 'src/steps'
 import { validator } from 'src/services/validator'
 
@@ -38,30 +39,38 @@ const main = async () => {
   })
   const projectName = words.toCapitalized(projectFolder)
 
-  // 2. Optional Docker
-  const { isDocker } = await prompt({
-    name: 'isDocker',
+  // 2. Optional Router
+  const { isRouter } = await prompt({
+    name: 'isRouter',
     type: 'list',
-    message: 'Do you want to generate basic docker 🐳 files?',
+    message: 'Dou you want to install react-router?',
     choices: [{ name: 'yes', value: true }, { name: 'no', value: false }],
   })
 
-  // 3. CI
+  // 3. Optional Docker
+  const { isDocker } = await prompt({
+    name: 'isDocker',
+    type: 'list',
+    message: 'Do you want to use docker 🐳?',
+    choices: [{ name: 'yes', value: true }, { name: 'no', value: false }],
+  })
+
+  // 4. CI
   const { ciService } = await prompt({
     name: 'ciService',
     type: 'list',
-    message: 'What continuous integration service do you want to use?',
+    message: 'What CI service do you want to use?',
     choices: [
       { name: 'CircleCi', value: 'circleCi' },
       { name: 'none 🚫', value: 'none' },
     ],
   })
 
-  // 4. CD
+  // 5. CD
   const { cdService } = await prompt({
     name: 'cdService',
     type: 'list',
-    message: 'What hosting do you want to use?',
+    message: 'What hosting service do you want to use?',
     choices: [
       { name: 'Heroku', value: 'heroku' },
       { name: 'none 🚫', value: 'none' },
@@ -72,6 +81,7 @@ const main = async () => {
     projectFolder,
     projectName,
     isDocker,
+    isRouter,
     isHeroku: cdService === 'heroku',
   }
 
@@ -101,6 +111,9 @@ const main = async () => {
   await addEslint(generatorState)
   await addGitHooks(generatorState)
   await addBasicProjectFiles(generatorState)
+  if (isRouter) {
+    await addReactRouter(generatorState)
+  }
   await addFilesToGit(generatorState)
 }
 

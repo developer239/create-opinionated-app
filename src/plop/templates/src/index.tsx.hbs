@@ -1,13 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+{{#if isRouter}}
 import { BrowserRouter as Router } from 'react-router-dom'
+{{/if}}
 import { App } from 'App'
 
 const renderApp = () => {
   ReactDOM.render(
+    {{#if isRouter}}
     <Router>
+    {{/if}}
       <App />
-    </Router>,
+    {{#if isRouter}}
+    </Router>
+    {{/if}},
     document.getElementById('root')
   )
 }

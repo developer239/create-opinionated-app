@@ -183,12 +183,20 @@ export const addBasicProjectFiles = async (state: IGeneratorState) => {
     'Old project structure removed'
   )
   await shell.execInProjectWithSpinner(state.projectFolder)(
-    'yarn add react-router react-router-dom styled-components && yarn add @types/react-router-dom @types/styled-components jest-styled-components @testing-library/react -D',
+    'yarn add styled-components && yarn add @types/styled-components jest-styled-components @testing-library/react -D',
     'Essential libraries installed'
   )
 
   await generator.runActions(state, '.env')
   await generator.runActions(state, 'src')
+}
+
+export const addReactRouter = async (state: IGeneratorState) => {
+  await shell.execInProjectWithSpinner(state.projectFolder)(
+    'yarn add react-router react-router-dom && yarn add @types/react-router-dom -D',
+    'React Router installed'
+  )
+  await generator.runActions(state, 'router')
 }
 
 export const addDocker = (state: IGeneratorState) =>

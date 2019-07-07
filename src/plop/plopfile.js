@@ -109,16 +109,9 @@ module.exports = plop => {
     ],
   })
 
-  plop.setGenerator('src', {
-    description: `create basic source files`,
+  plop.setGenerator('router', {
+    description: `create basic router files`,
     actions: [
-      // Layout Component
-      {
-        type: 'add',
-        templateFile: 'templates/src/components/Layout/index.ts.hbs',
-        path: path.join(process.cwd(), '{{ projectFolder }}', 'src', 'components', 'Layout', 'index.ts'),
-      },
-
       // Home Page and /tests
       {
         type: 'add',
@@ -148,6 +141,18 @@ module.exports = plop => {
         type: 'add',
         templateFile: 'templates/src/testUtils/render.tsx.hbs',
         path: path.join(process.cwd(), '{{ projectFolder }}', 'src', 'testUtils', 'render.tsx'),
+      },
+    ],
+  })
+
+  plop.setGenerator('src', {
+    description: `create basic source files`,
+    actions: [
+      // Layout Component
+      {
+        type: 'add',
+        templateFile: 'templates/src/components/Layout/index.ts.hbs',
+        path: path.join(process.cwd(), '{{ projectFolder }}', 'src', 'components', 'Layout', 'index.ts'),
       },
 
       // App File

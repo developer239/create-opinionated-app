@@ -1,15 +1,23 @@
 import React, { FC } from 'react'
+{{#if isRouter}}
 import { Route, Switch } from 'react-router-dom'
+{{/if}}
 import { Layout } from 'components/Layout'
+{{#if isRouter}}
 import { HomePage, HOME_ROUTE } from 'pages/Home'
 import { NotFoundPage, NOT_FOUND_ROUTE } from './pages/NotFound'
+{{/if}}
 
 const App: FC = () => (
   <Layout>
+    {{#if isRouter}}
     <Switch>
       <Route path={HOME_ROUTE} exact component={HomePage} />
       <Route path={NOT_FOUND_ROUTE} component={NotFoundPage} />
     </Switch>
+    {{else}}
+    Hello {{ projectName }}
+    {{/if}}
   </Layout>
 )
 
