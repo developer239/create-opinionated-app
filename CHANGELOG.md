@@ -1,3 +1,19 @@
+# [1.4.0](https://github.com/developer239/create-opinionated-react-app/compare/v1.3.1...v1.4.0) (2019-07-07)
+
+
+### Bug Fixes
+
+* include forgotten setupTests file for cleaning up renderer ([6e7fb94](https://github.com/developer239/create-opinionated-react-app/commit/6e7fb94))
+* typo in app.tsx hbs template ([a6b92dd](https://github.com/developer239/create-opinionated-react-app/commit/a6b92dd))
+
+
+### Features
+
+* add typescript badge to generated project README ([0c863ea](https://github.com/developer239/create-opinionated-react-app/commit/0c863ea))
+* create optional react apollo generator ([5b66692](https://github.com/developer239/create-opinionated-react-app/commit/5b66692))
+* create optional redux generator ([d3a083f](https://github.com/developer239/create-opinionated-react-app/commit/d3a083f))
+* make react router optional ([096440a](https://github.com/developer239/create-opinionated-react-app/commit/096440a))
+
 ## [1.3.1](https://github.com/developer239/create-opinionated-react-app/compare/v1.3.0...v1.3.1) (2019-07-07)
 
 
