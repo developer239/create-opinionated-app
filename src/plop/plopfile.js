@@ -29,7 +29,7 @@ module.exports = plop => {
 
   setGenerator(plop)({
     name: '.eslintrc.js',
-    templatePath: 'templates/eslintrc.hbs',
+    templatePath: 'templates/eslintrc.js.hbs',
     filePath: '.eslintrc.js',
   })
 
@@ -47,13 +47,13 @@ module.exports = plop => {
 
   setGenerator(plop)({
     name: 'commitlint.config.js',
-    templatePath: 'templates/commitlint.hbs',
+    templatePath: 'templates/commitlint.config.js.hbs',
     filePath: 'commitlint.config.js',
   })
 
   setGenerator(plop)({
     name: 'commitlint.config.js',
-    templatePath: 'templates/commitlint.hbs',
+    templatePath: 'templates/commitlint.config.js.hbs',
     filePath: 'commitlint.config.js',
   })
 
@@ -77,7 +77,7 @@ module.exports = plop => {
 
   setGenerator(plop)({
     name: 'README.md',
-    templatePath: 'templates/readme.hbs',
+    templatePath: 'templates/README.md.hbs',
     filePath: 'README.md',
   })
 
