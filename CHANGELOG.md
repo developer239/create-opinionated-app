@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/developer239/create-opinionated-react-app/compare/v1.6.0...v1.6.1) (2019-07-08)
+
+
+### Bug Fixes
+
+* typo in react router prompt 🤯 ([b200a05](https://github.com/developer239/create-opinionated-react-app/commit/b200a05))
+
 # [1.6.0](https://github.com/developer239/create-opinionated-react-app/compare/v1.5.2...v1.6.0) (2019-07-08)
 
 
