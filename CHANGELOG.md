@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/developer239/create-opinionated-react-app/compare/v1.5.2...v1.6.0) (2019-07-08)
+
+
+### Features
+
+* show success message when project is generated ([c3c518e](https://github.com/developer239/create-opinionated-react-app/commit/c3c518e))
+
 ## [1.5.2](https://github.com/developer239/create-opinionated-react-app/compare/v1.5.1...v1.5.2) (2019-07-07)
 
 
