@@ -46,7 +46,7 @@ const main = async () => {
   const { isRouter } = await prompt({
     name: 'isRouter',
     type: 'list',
-    message: 'Dou you want to install react-router?',
+    message: 'Do you want to install react-router?',
     choices: [{ name: 'yes', value: true }, { name: 'no', value: false }],
   })
 
