@@ -1,3 +1,11 @@
+## [1.8.1](https://github.com/developer239/create-opinionated-react-app/compare/v1.8.0...v1.8.1) (2020-01-06)
+
+
+### Bug Fixes
+
+* revert previous semantic-release changes ([e904630](https://github.com/developer239/create-opinionated-react-app/commit/e90463069649e8c16bd77c81c82a1164c4af1e5d))
+* temporarily manually build lib ([6012578](https://github.com/developer239/create-opinionated-react-app/commit/601257835e53348e586114c32b0dd49944981b0b))
+
 # [1.7.0](https://github.com/developer239/create-opinionated-react-app/compare/v1.6.1...v1.7.0) (2020-01-06)
 
 
