@@ -1,0 +1,6 @@
+module.exports = {
+  extends: [
+    '@code-quality/stylelint-styled-components-config',
+    'stylelint-config-prettier',
+  ],
+}
