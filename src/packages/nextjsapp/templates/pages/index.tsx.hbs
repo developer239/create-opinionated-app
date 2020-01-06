@@ -1,0 +1,15 @@
+import React from 'react'
+import { NextPage } from 'next'
+
+interface IProps {
+  pathname: string
+}
+
+const Home: NextPage<IProps> = ({ pathname }) => (
+  <div>Hello, Some App! We are on {pathname}</div>
+)
+
+Home.getInitialProps = ({ pathname }) => ({ pathname })
+
+// eslint-disable-next-line
+export default Home

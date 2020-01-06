@@ -1,0 +1,4 @@
+{
+  "extends": "@code-quality/semantic-release-config",
+  "branch": "master"
+}

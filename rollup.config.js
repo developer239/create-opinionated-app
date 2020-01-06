@@ -24,15 +24,8 @@ export default {
     }),
     copy({
       targets: [
-        {
-          src: './src/plop/templates/**/*',
-          dest: './lib/templates',
-        },
-        {
-          src: './src/plop/plopfile.js',
-          dest: './lib',
-        },
+        { src: 'src/packages/*', dest: 'lib/generators' }
       ],
-    }),
+    })
   ],
 }

@@ -21,7 +21,7 @@ const execWithSpinner = async (
   const spinner = ora()
   spinner.start(
     `Running: ${chalk.yellow(
-      options && options.trim ? command.replace(options.trim, '') : command
+      options?.trim ? command.replace(options.trim, '') : command
     )}`
   )
 
@@ -31,7 +31,7 @@ const execWithSpinner = async (
   return response
 }
 
-const exec = (command: string, silent: boolean = true) => {
+const exec = (command: string, silent = true) => {
   return shelljs.exec(command, { silent })
 }
 
