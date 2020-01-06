@@ -73,4 +73,4 @@ const main = async () => {
   )
 }
 
-main().catch(() => logger.log('failed to run generator'))
+main().catch(() => logger.info('failed to run generator'))

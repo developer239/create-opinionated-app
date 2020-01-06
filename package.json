@@ -12,7 +12,7 @@
     "semantic-release": "semantic-release"
   },
   "engines": {
-    "node": ">=12",
+    "node": ">=11.10.1",
     "npm": ">=6"
   },
   "files": [
