@@ -20,32 +20,30 @@ $ create-opinionated-react-app
 if you don't want to install global dependency:
 
 ```bash
-$ npm install -g npx
 $ npx create-opinionated-react-app
 ```
 
-## Choose Your React Application
+## Choose Your New Application
 
-- [create react app](https://github.com/facebook/create-react-app)
-- [next.js](https://github.com/zeit/next.js)
-- [react-native](https://github.com/facebook/react-native)
+- [x] [create react app](https://github.com/facebook/create-react-app)
+- [x] [next.js](https://github.com/zeit/next.js)
+- [x] [react-native](https://github.com/facebook/react-native)
 
 ## What Is Included
 
-- [x] Webpack, Babel and more setup from [Create React App](https://github.com/facebook/create-react-app)
-- [x] ![TS](./typescript.svg?sanitize=true) Strong [Typescript](https://www.typescriptlang.org) types
+- [x] Webpack, Babel and other essential libraries...
+- [x] ![TS](https://github.com/developer239/create-opinionated-react-app/blob/master/typescript.svg) Strong [Typescript](https://www.typescriptlang.org) types
 - [x] 💅 [Styled Components](https://github.com/styled-components/styled-components) for every React application
+- [x] [Jest](https://github.com/facebook/jest)
 - [x] 🐐 [React Testing Library](https://github.com/testing-library/react-testing-library)
 - [x] [Jest Styled Components](https://github.com/styled-components/jest-styled-components)
 
 #### Code Quality Tools
 
+- [x] [Eslint](https://github.com/eslint/eslint) and [Stylelint](https://stylelint.io/) with hand-crafted config
+- [x] [Prettier](https://prettier.io)
 - [x] [BrowserList](https://github.com/browserslist/browserslist)
 - [x] [EditorConfig](https://editorconfig.org/)
-- [x] [Eslint](https://github.com/eslint/eslint)
-- [x] [STRV Code Quality Tools](https://github.com/strvcom/code-quality-tools) 💪
-- [x] [Prettier](https://prettier.io)
-- [x] [Stylelint](https://stylelint.io/)
 - [x] 🐶 [Husky](https://github.com/typicode/husky)
 - [x] [CommitLint](https://github.com/conventional-changelog/commitlint)
 - [x] [LintStaged](https://github.com/okonet/lint-staged)
@@ -56,8 +54,7 @@ $ npx create-opinionated-react-app
 - [x] [Redux](https://github.com/reduxjs/redux)
 - [x] [React Apollo](https://github.com/apollographql/react-apollo)
 - [x] 🐳 [Docker](https://github.com/docker)
-- [x] Minimal [CircleCi](https://circleci.com) configuration
-- [x] Minimal [Heroku](https://heroku.com) configuration
+- [x] [Heroku](https://heroku.com) configuration
 
 ## Why?
 
