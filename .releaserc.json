@@ -1,4 +1,7 @@
 {
   "extends": "@code-quality/semantic-release-config",
-  "branch": "master"
+  "branch": "master",
+  "plugins": ["@semantic-release/git", {
+    "assets": ["lib/**/*.{js,ts}", "CHANGELOG.md", "package.json"]
+  }]
 }
