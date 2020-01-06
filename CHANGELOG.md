@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/developer239/create-opinionated-react-app/compare/v1.6.1...v1.7.0) (2020-01-06)
+
+
+### Features
+
+* implement modular generators ([#14](https://github.com/developer239/create-opinionated-react-app/issues/14)) ([7c52afe](https://github.com/developer239/create-opinionated-react-app/commit/7c52afeaeb099c6dfc758237c5242ccacb3cbef8))
+
 ## [1.6.1](https://github.com/developer239/create-opinionated-react-app/compare/v1.6.0...v1.6.1) (2019-07-08)
 
 
