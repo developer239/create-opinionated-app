@@ -24,6 +24,11 @@ $ npm install -g npx
 $ npx create-opinionated-react-app
 ```
 
+## Choose Your React Application
+
+- [create react app](https://github.com/facebook/create-react-app)
+- [next.js](https://github.com/zeit/next.js)
+- [react-native](https://github.com/facebook/react-native)
 
 ## What Is Included
 

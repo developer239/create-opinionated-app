@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 const validateProjectFolder = (value: string) => {
+  // eslint-disable-next-line
   const validateName = require('validate-npm-package-name')
 
   const { errors } = validateName(value)

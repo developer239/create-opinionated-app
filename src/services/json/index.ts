@@ -1,3 +1,5 @@
+// TODO: fix lint issues
+/* eslint-disable */
 import path from 'path'
 import fs from 'fs'
 import ora from 'ora'
