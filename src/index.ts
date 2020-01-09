@@ -1,4 +1,5 @@
 import { prompt } from 'inquirer'
+import figlet from 'figlet'
 import * as chalk from 'chalk'
 import { capitalizeAll, toAlphaNumeric } from 'services/text'
 import { validator } from 'services/validator'
@@ -12,6 +13,8 @@ import { AppType, ProjectType } from 'state.types'
 import { state } from 'state'
 
 const main = async () => {
+  logger.info(chalk.green(figlet.textSync('Create App')))
+
   const { projectType } = await prompt({
     name: 'projectType',
     type: 'list',
@@ -52,17 +55,7 @@ const main = async () => {
       break
   }
 
-  logger.info(
-    chalk.green(
-      ` _____ _   _ ______ _____  _____ _____ _____ 
-/  ___| | | /  __ \\/  __ \\|  ___/  ___/  ___|
-\\ \`--.| | | | /  \\/| /  \\/| |__ \\ \`--.\\ \`--. 
- \`--. \\ | | | |    | |    |  __| \`--. \\\`--. \\
-/\\__/ / |_| | \\__/\\| \\__/\\| |___/\\__/ /\\__/ /
-\\____/ \\___/ \\____/ \\____/\\____/\\____/\\____/ 
-`,
-    ),
-  )
+  logger.info(chalk.green(figlet.textSync('Success', { horizontalLayout: 'full' })))
   logger.info(
     chalk.bold(
       `Your new application lives in ${chalk.underline.green(
