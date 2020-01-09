@@ -20,7 +20,7 @@ export const removeFiles = (name: string, files: string[], recursive = false) =>
   )
 
 export const makeDir = (name: string) =>
-  shell.execInProjectWithSpinner(state.projectFolder)(
+  shell.execWithSpinner(
     `mkdir ${name}`,
     `[fs][make dir] ${name}`
   )
