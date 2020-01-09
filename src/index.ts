@@ -3,25 +3,15 @@ import * as chalk from 'chalk'
 import { capitalizeAll, toAlphaNumeric } from 'services/text'
 import { validator } from 'services/validator'
 import { createReactApp } from 'projects/createReactApp'
-import { state } from 'state'
 import { logger } from 'services/log'
-import { ProjectType } from 'state.types'
 import { createNextJsApp } from 'projects/nextJsApp'
-import { checkYarn } from 'packages/yarn'
-import { checkNpx } from 'packages/npx'
+import { checkYarn } from 'services/dependencyCheck/yarn'
+import { checkNpx } from 'services/dependencyCheck/npx'
 import { createReactNativeApp } from 'projects/reactNativeApp'
+import { AppType, ProjectType } from 'state.types'
+import { state } from 'state'
 
 const main = async () => {
-  // Project Name
-  const { projectFolder: rawProjectFolder } = await prompt({
-    name: 'projectFolder',
-    message: 'How do you want to call your project?',
-    validate: validator.validateProjectFolder,
-  })
-  state.projectFolder = rawProjectFolder.toLowerCase()
-  state.projectName = capitalizeAll(rawProjectFolder)
-
-  // Project Type
   const { projectType } = await prompt({
     name: 'projectType',
     type: 'list',
@@ -33,6 +23,15 @@ const main = async () => {
     ],
   })
   state.projectType = projectType
+  state.appType = projectType === ProjectType.RN ? AppType.MOBILE : AppType.WEB
+
+  const { projectFolder: rawProjectFolder } = await prompt({
+    name: 'projectFolder',
+    message: 'How do you want to call your project?',
+    validate: validator.validateProjectFolder,
+  })
+  state.projectName = capitalizeAll(rawProjectFolder)
+  state.projectFolder = rawProjectFolder.toLowerCase()
 
   if (projectType === ProjectType.RN) {
     state.projectFolder = toAlphaNumeric(state.projectFolder)
@@ -41,16 +40,16 @@ const main = async () => {
   await checkYarn()
   await checkNpx()
 
-  if(projectType === ProjectType.CRA) {
-    await createReactApp()
-  }
-
-  if(projectType === ProjectType.NEXT) {
-    await createNextJsApp()
-  }
-
-  if (projectType === ProjectType.RN) {
-    await createReactNativeApp()
+  switch (projectType) {
+    case ProjectType.CRA:
+      await createReactApp(state)
+      break
+    case ProjectType.NEXT:
+      await createNextJsApp(state)
+      break
+    case ProjectType.RN:
+      await createReactNativeApp(state)
+      break
   }
 
   logger.info(
@@ -61,16 +60,16 @@ const main = async () => {
  \`--. \\ | | | |    | |    |  __| \`--. \\\`--. \\
 /\\__/ / |_| | \\__/\\| \\__/\\| |___/\\__/ /\\__/ /
 \\____/ \\___/ \\____/ \\____/\\____/\\____/\\____/ 
-`
-    )
+`,
+    ),
   )
   logger.info(
     chalk.bold(
       `Your new application lives in ${chalk.underline.green(
-        `./${state.projectFolder}`
-      )}`
-    )
+        `./${state.projectFolder}`,
+      )}`,
+    ),
   )
 }
 
-main().catch(() => logger.info('failed to run generator'))
+main().catch((error) => logger.warning(`[main] Failed to run generator: ${error}`))

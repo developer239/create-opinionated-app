@@ -1,30 +1,31 @@
-import { state } from 'state'
 import { json } from 'services/json'
-import { shell } from 'services/shell'
 import { generate } from 'services/generator'
 import { loadTemplate } from 'services/template'
+import { addDependencies } from 'services/exec'
 
 const moduleName = 'prettier'
 
-export const addPrettier = async () => {
+interface IContext {
+  projectFolder: string
+}
+
+export const addPrettier = async (context: IContext) => {
   await json.update('package.json')(
     {
-      projectName: state.projectFolder,
+      projectName: context.projectFolder,
       message: '[json] adding "format" to scripts',
       messageSuccess: '[json] add "format" to scripts',
     },
-    jsonFile => {
-      jsonFile.scripts.format = "prettier --write '*/**/*.{ts,tsx,css,md,json}'"
-
-      return jsonFile
-    }
+    jsonFile => ({
+      ...jsonFile,
+      scripts: {
+        ...jsonFile.scripts,
+        format: 'prettier --write \'*/**/*.{ts,tsx,css,md,json}\'',
+      },
+    }),
   )
 
-  await shell.execInProjectWithSpinner(state.projectFolder)(
-    'yarn add prettier @code-quality/prettier-config -D',
-    '[dependencies] install prettier'
-  )
-
+  await addDependencies('prettier', ['prettier', '@code-quality/prettier-config'], true)
   await generate({
     name: moduleName,
     templateFiles: [

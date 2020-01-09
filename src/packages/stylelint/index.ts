@@ -1,65 +1,51 @@
-import { ProjectType } from 'state.types'
+import { AppType } from 'state.types'
 import { state } from 'state'
 import { json } from 'services/json'
-import { shell } from 'services/shell'
 import { generate } from 'services/generator'
 import { loadTemplate } from 'services/template'
+import { addDependencies } from 'services/exec'
 
 const moduleName = 'stylelint'
 
-export const addForMobile = async () => {
-  await shell.execInProjectWithSpinner(state.projectFolder)(
-    'yarn add stylelint prettier @code-quality/stylelint-styled-components-react-native-config stylelint-config-prettier -D',
-    '[dependencies] install stylelint'
-  )
-
-  return generate({
-    name: 'stylelintrc.js',
-    templateFiles: [
-      {
-        name: 'stylelintrc.js',
-        data: loadTemplate([moduleName, 'templates', 'mobile', 'stylelintrc.js.hbs']),
-        destination: ['.stylelintrc.js'],
-      },
-    ],
-  })
+interface IContext {
+  appType: AppType
 }
 
-export const addForWeb = async () => {
-  await shell.execInProjectWithSpinner(state.projectFolder)(
-    'yarn add stylelint prettier @code-quality/stylelint-styled-components-config stylelint-config-prettier -D',
-    '[dependencies] install stylelint'
-  )
+export const addStylelint = async (context: IContext) => {
+  const lintCssMobile = 'stylelint \'pages/**/*.{ts,tsx}\''
+  const lintCssWeb = 'stylelint \'**/*.{ts,tsx}\''
+  const lintCss = context.appType === AppType.MOBILE ? lintCssMobile : lintCssWeb
 
-  return generate({
-    name: 'stylelintrc.js',
-    templateFiles: [
-      {
-        name: 'stylelintrc.js',
-        data: loadTemplate([moduleName, 'templates', 'web', 'stylelintrc.js.hbs']),
-        destination: ['.stylelintrc.js'],
-      },
-    ],
-  })
-}
+  const dependenciesShared = ['stylelint', 'prettier', 'stylelint-config-prettier']
+  const dependenciesMobile = ['@code-quality/stylelint-styled-components-react-native-config']
+  const dependenciesWeb = ['@code-quality/stylelint-styled-components-config']
+  const dependencies = [...dependenciesShared, ...(context.appType === AppType.MOBILE ? dependenciesMobile : dependenciesWeb)]
 
-export const addStylelint = async () => {
   await json.update('package.json')(
     {
       projectName: state.projectFolder,
       message: '[json] adding lint:css to scripts',
       messageSuccess: '[json] add "lint:css" to scripts',
     },
-    jsonFile => {
-      jsonFile.scripts['lint:css'] = state.projectType === ProjectType.NEXT ? "stylelint 'pages/**/*.{ts,tsx}'" : "stylelint '**/*.{ts,tsx}'"
-
-      return jsonFile
-    }
+    jsonFile => ({
+      ...jsonFile,
+      scripts: {
+        ...jsonFile.scripts,
+        'lint:css': lintCss,
+      },
+    }),
   )
 
-  if (state.projectType === ProjectType.RN) {
-    await addForMobile()
-  } else {
-    await addForWeb()
-  }
+  await addDependencies('stylelint', dependencies)
+
+  return generate({
+    name: 'stylelintrc.js',
+    templateFiles: [
+      {
+        name: 'stylelintrc.js',
+        data: loadTemplate([moduleName, 'templates', context.appType, 'stylelintrc.js.hbs']),
+        destination: ['.stylelintrc.js'],
+      },
+    ],
+  })
 }

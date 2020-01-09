@@ -26,6 +26,7 @@
     "ora": "4.0.3",
     "ramda": "^0.26.1",
     "shelljs": "^0.8.3",
+    "update-notifier": "^4.0.0",
     "validate-npm-package-name": "^3.0.0"
   },
   "devDependencies": {
@@ -41,10 +42,11 @@
     "@types/ora": "3.2.0",
     "@types/ramda": "^0.26.39",
     "@types/shelljs": "^0.8.6",
+    "@types/update-notifier": "^2.5.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-import": "^2.19.1",
-    "husky": "^3.1.0",
+    "husky": "^4.0.0",
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
     "rollup": "^1.28.0",
