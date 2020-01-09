@@ -1,0 +1,45 @@
+{
+  "name": "some-app",
+  "version": "0.1.0",
+  "dependencies": {
+    "@code-quality/eslint-config-react": "^1.6.1",
+    "@code-quality/eslint-config-typescript": "^1.5.2",
+    "@code-quality/stylelint-styled-components-config": "^1.1.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/user-event": "^7.1.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-import": "^2.19.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.3.0",
+    "styled-components": "^4.4.1",
+    "stylelint": "^12.0.1",
+    "stylelint-config-prettier": "^8.0.0",
+    "typescript": "~3.7.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "format": "prettier --write '*/**/*.{ts,tsx,css,md,json}'",
+    "lint:css": "stylelint '**/*.{ts,tsx}'",
+    "lint:ts": "eslint --ext .ts,.tsx src"
+  },
+  "devDependencies": {
+    "@code-quality/commitlint-config": "^1.1.0",
+    "@code-quality/prettier-config": "^2.1.0",
+    "@commitlint/cli": "^8.3.4",
+    "@types/jest": "^24.0.25",
+    "@types/node": "^13.1.6",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "@types/styled-components": "^4.4.2",
+    "@types/webpack-env": "^1.15.0",
+    "husky": "^4.0.3",
+    "jest-styled-components": "^6.3.4",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1"
+  }
+}
