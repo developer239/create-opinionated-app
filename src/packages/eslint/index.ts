@@ -37,7 +37,7 @@ export const addEslint = async (context: IContext) => {
     }),
   )
 
-  await addDependencies('eslint', dependencies)
+  await addDependencies('eslint', dependencies, true)
 
   return generate({
     name: moduleName,

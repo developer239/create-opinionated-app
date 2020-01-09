@@ -36,7 +36,7 @@ export const addStylelint = async (context: IContext) => {
     }),
   )
 
-  await addDependencies('stylelint', dependencies)
+  await addDependencies('stylelint', dependencies, true)
 
   return generate({
     name: 'stylelintrc.js',

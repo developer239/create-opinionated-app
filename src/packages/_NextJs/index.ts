@@ -67,6 +67,6 @@ export const initNextJsApp = async (context: IContext) => {
     ],
   })
 
-  await addDependencies('react, styled-components', ['react', 'react-dom', 'styled-components'])
+  await addDependencies('next, react, styled-components', ['next', 'react', 'react-dom', 'styled-components'])
   await addDependencies('@types', ['@types/node ', '@types/react', '@types/react-dom', '@types/styled-components', 'babel-plugin-styled-components', 'typescript'], true)
 }
