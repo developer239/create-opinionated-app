@@ -1,0 +1,12 @@
+import React from 'react'
+import 'jest-styled-components'
+import { renderComponent } from 'testUtils/render'
+import { HOME_TEST_ID, HomePage } from '../index'
+
+describe('[pages] HomePage', () => {
+  it('should render correctly', () => {
+    const renderer = renderComponent(<HomePage />)
+    const renderedElement = renderer.getByTestId(HOME_TEST_ID)
+    expect(renderedElement).toBeTruthy()
+  })
+})

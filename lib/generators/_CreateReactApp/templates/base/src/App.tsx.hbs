@@ -1,9 +1,12 @@
 import React, { FC } from 'react'
 import { Layout } from 'components/Layout'
+import { HomePage } from 'pages/Home'
+import { GlobalStyles } from 'styles/global'
 
 const App: FC = () => (
   <Layout>
-    Hello {{ projectName }}!
+    <GlobalStyles />
+    <HomePage />
   </Layout>
 )
 
