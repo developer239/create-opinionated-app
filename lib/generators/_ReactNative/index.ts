@@ -85,7 +85,7 @@ export const initReactNativeApp = async (context: IContext) => {
 
   switch (navigationType) {
     case NavigationType.REACT_NAVIGATION:
-      await addDependencies('react-navigation', ['react-navigation', 'react-native-reanimated', 'react-native-gesture-handler', 'react-native-screens', 'react-native-safe-area-context', 'react-navigation-tabs'])
+      await addDependencies('react-navigation', ['react-navigation', 'react-native-reanimated', 'react-native-gesture-handler', 'react-native-screens', 'react-native-safe-area-context', 'react-navigation-stack', 'react-navigation-tabs'])
 
       await generate({
         name: moduleName,

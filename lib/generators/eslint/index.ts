@@ -14,7 +14,7 @@ interface IContext {
 export const addEslint = async (context: IContext) => {
   const lintTs = 'eslint --ext .ts,.tsx src'
 
-  const dependenciesShared = ['eslint', 'eslint-plugin-import', '@code-quality/eslint-config-typescript', 'eslint-config-prettier']
+  const dependenciesShared = ['eslint', 'eslint-plugin-import', '@code-quality/eslint-config-typescript', '@code-quality/eslint-config-jest', 'eslint-config-prettier']
   const dependenciesMobile = ['@code-quality/eslint-config-react-native']
   const dependenciesWeb = ['@code-quality/eslint-config-react']
   const dependencies = [...dependenciesShared, ...(context.appType === AppType.MOBILE ? dependenciesMobile : dependenciesWeb)]

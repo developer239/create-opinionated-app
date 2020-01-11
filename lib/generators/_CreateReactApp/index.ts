@@ -11,7 +11,6 @@ interface IContext {
   projectName: string
 }
 
-// eslint-disable-next-line
 export const initReactApp = async (context: IContext) => {
   const { isRouter } = await prompt({
     name: 'isRouter',
