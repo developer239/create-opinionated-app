@@ -1,3 +1,4 @@
+import { prompt } from 'inquirer'
 import { shell } from 'services/shell'
 import { generate } from 'services/generator'
 import { json } from 'services/json'
@@ -10,7 +11,24 @@ interface IContext {
   projectName: string
 }
 
+enum NavigationType {
+  NONE = 'NONE',
+  WIX = 'WIX',
+  REACT_NAVIGATION = 'REACT_NAVIGATION',
+}
+
 export const initReactNativeApp = async (context: IContext) => {
+  const { navigationType } = await prompt({
+    name: 'navigationType',
+    type: 'list',
+    message: 'Do you want to use navigation?',
+    choices: [
+      { name: 'None', value: NavigationType.NONE },
+      { name: 'React Native Navigation (WIX)', value: NavigationType.WIX },
+      { name: 'React Navigation', value: NavigationType.REACT_NAVIGATION },
+    ],
+  })
+
   await shell.execWithSpinner(
     `npx react-native init ${context.projectFolder}`,
     '[react-native-app] initialized',
@@ -21,7 +39,7 @@ export const initReactNativeApp = async (context: IContext) => {
     '.prettierrc.js',
     'App.js',
     'babel.config.js',
-    'index.js'
+    'index.js',
   ])
   await removeFiles('__tests__', ['__tests__'], true)
 
@@ -58,13 +76,26 @@ export const initReactNativeApp = async (context: IContext) => {
   await removeDependencies('react-test-renderer', ['react-test-renderer', '@types/react-test-renderer'])
   await addDependencies('react-native-config', ['react-native-config'])
 
-  await shell.execInProjectWithSpinner(context.projectFolder)('react-native link', 'linked RN dependencies')
-  await shell.execInProjectWithSpinner(context.projectFolder)('cd ios && pod install', 'installed pod files')
-
   await generate({
     name: moduleName,
-    source: 'templates',
+    source: 'templates/base',
     destination: '.',
     context: { projectName: context.projectName },
   })
+
+  switch (navigationType) {
+    case NavigationType.REACT_NAVIGATION:
+      await addDependencies('react-navigation', ['react-navigation', 'react-native-reanimated', 'react-native-gesture-handler', 'react-native-screens', 'react-native-safe-area-context', 'react-navigation-stack', 'react-navigation-tabs'])
+
+      await generate({
+        name: moduleName,
+        source: 'templates/react-navigation',
+        destination: '.',
+        context: { projectName: context.projectName },
+      })
+      break
+  }
+
+  await shell.execInProjectWithSpinner(context.projectFolder)('react-native link', 'linked RN dependencies')
+  await shell.execInProjectWithSpinner(context.projectFolder)('cd ios && pod install', 'installed pod files')
 }
