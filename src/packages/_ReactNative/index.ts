@@ -96,6 +96,6 @@ export const initReactNativeApp = async (context: IContext) => {
       break
   }
 
-  await shell.execInProjectWithSpinner(context.projectFolder)('react-native link', 'linked RN dependencies')
-  await shell.execInProjectWithSpinner(context.projectFolder)('cd ios && pod install', 'installed pod files')
+  await shell.execInProjectWithSpinner(context.projectFolder)('react-native link', '[exec] link RN dependencies')
+  await shell.execInProjectWithSpinner(context.projectFolder)('cd ios && pod install', '[exec] run pod install')
 }
