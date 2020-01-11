@@ -21,7 +21,7 @@ const main = async () => {
     message: 'What type of application would you like to create?',
     choices: [
       { name: 'Create React App', value: ProjectType.CRA },
-      { name: 'NextJs App', value: ProjectType.NEXT },
+      { name: 'Next.js App', value: ProjectType.NEXT },
       { name: 'React Native App', value: ProjectType.RN },
     ],
   })

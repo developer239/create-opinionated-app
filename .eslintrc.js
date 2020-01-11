@@ -8,9 +8,8 @@ module.exports = {
   rules: {
     'security/detect-non-literal-fs-filename': 1,
     'default-case': 1,
-    'import/order': ['error', { 'groups': ['builtin', 'external', 'internal', 'parent', 'sibling', 'index' ] }],
+    'import/order': ['error', { 'groups': ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'] }],
     'max-lines-per-function': ['error', 90],
-    '@typescript-eslint/triple-slash-reference': 0,
-    'import/no-default-export': 1
+    '@typescript-eslint/triple-slash-reference': 0
   }
 }

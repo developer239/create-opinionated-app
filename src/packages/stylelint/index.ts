@@ -1,5 +1,5 @@
 import path from 'path'
-import { AppType, ProjectType } from 'state.types'
+import { AppType } from 'state.types'
 import { json } from 'services/json'
 import { generate } from 'services/generator'
 import { addDependencies } from 'services/exec'
@@ -7,15 +7,12 @@ import { addDependencies } from 'services/exec'
 const moduleName = 'stylelint'
 
 interface IContext {
-  projectType: ProjectType
   appType: AppType
   projectFolder: string
 }
 
 export const addStylelint = async (context: IContext) => {
-  const lintCssNEXT = 'stylelint \'pages/**/*.{ts,tsx}\''
-  const lintCssOther = 'stylelint \'**/*.{ts,tsx}\''
-  const lintCss = context.projectType === ProjectType.NEXT ? lintCssNEXT : lintCssOther
+  const lintCss = 'stylelint \'**/*.{ts,tsx}\''
 
   const dependenciesShared = ['stylelint', 'prettier', 'stylelint-config-prettier']
   const dependenciesMobile = ['@code-quality/stylelint-styled-components-react-native-config']

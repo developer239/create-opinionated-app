@@ -20,11 +20,10 @@ export const createNextJsApp = async (context: IMainState) => {
   await addBrowserlist()
   await addPrettier({ projectFolder: context.projectFolder })
   await addStylelint({
-    projectType: context.projectType,
     appType: context.appType,
     projectFolder: context.projectFolder,
   })
-  await addEslint({ projectType: context.projectType, appType: context.appType, projectFolder: context.projectFolder })
+  await addEslint({ appType: context.appType, projectFolder: context.projectFolder })
 
   // Git hooks
   await setUpGitHooks()

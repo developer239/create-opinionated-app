@@ -1,21 +1,18 @@
 import path from 'path'
 import { generate } from 'services/generator'
-import { AppType, ProjectType } from 'state.types'
+import { AppType } from 'state.types'
 import { addDependencies } from 'services/exec'
 import { json } from 'services/json'
 
 const moduleName = 'eslint'
 
 interface IContext {
-  projectType: ProjectType
   appType: AppType
   projectFolder: string
 }
 
 export const addEslint = async (context: IContext) => {
-  const lintTsNEXT = 'eslint --ext .ts,.tsx pages'
-  const lintTsOther = 'eslint --ext .ts,.tsx src'
-  const lintTs = context.projectType === ProjectType.NEXT ? lintTsNEXT : lintTsOther
+  const lintTs = 'eslint --ext .ts,.tsx src'
 
   const dependenciesShared = ['eslint', 'eslint-plugin-import', '@code-quality/eslint-config-typescript', 'eslint-config-prettier']
   const dependenciesMobile = ['@code-quality/eslint-config-react-native']
