@@ -8,35 +8,35 @@
 
 ![](https://imgs.xkcd.com/comics/standards.png)
 
-## How To Use
+## Installation
 
-Install globally:
+Run following command:
+
+```bash
+$ npx create-opinionated-react-app
+```
+
+Or you can install this library as global dependency:
 
 ```bash
 $ npm install -g create-opinionated-react-app
 $ create-opinionated-react-app
 ```
 
-if you don't want to install global dependency:
+## What does it do
 
-```bash
-$ npx create-opinionated-react-app
-```
+All of us need Typescript, CSS-in-JS, code quality tools and basic configuration for unit testing. This is strongly opinionated project generator that is built on top of our favourite frameworks.
 
-## Choose Your New Application
-
-- [x] [create react app](https://github.com/facebook/create-react-app)
+- [x] [create-react-app](https://github.com/facebook/create-react-app)
 - [x] [next.js](https://github.com/zeit/next.js)
 - [x] [react-native](https://github.com/facebook/react-native)
 
-## What Is Included
+#### Core Project Dependencies
 
-- [x] Webpack, Babel and other essential libraries...
-- [x] ![TS](https://github.com/developer239/create-opinionated-react-app/blob/master/typescript.svg) Strong [Typescript](https://www.typescriptlang.org) types
+- [x] ![TS](https://github.com/developer239/create-opinionated-react-app/blob/master/typescript.svg) Strong [types](https://www.typescriptlang.org) 
+- [x] [Webpack](https://github.com/webpack), [Babel](https://github.com/babel/babel) and other essential libraries...
 - [x] 💅 [Styled Components](https://github.com/styled-components/styled-components) for every React application
-- [x] [Jest](https://github.com/facebook/jest)
-- [x] 🐐 [React Testing Library](https://github.com/testing-library/react-testing-library)
-- [x] [Jest Styled Components](https://github.com/styled-components/jest-styled-components)
+- [x] Router [optional] 
 
 #### Code Quality Tools
 
@@ -48,20 +48,15 @@ $ npx create-opinionated-react-app
 - [x] [CommitLint](https://github.com/conventional-changelog/commitlint)
 - [x] [LintStaged](https://github.com/okonet/lint-staged)
 
-#### Optional Features
+#### Testing
 
-- [x] [React Router](https://github.com/ReactTraining/react-router)
-- [x] [Redux](https://github.com/reduxjs/redux)
-- [x] [React Apollo](https://github.com/apollographql/react-apollo)
-- [x] 🐳 [Docker](https://github.com/docker)
-- [x] [Heroku](https://heroku.com) configuration
+- [x] [Jest](https://github.com/facebook/jest) for cross-platform testing
+- [x] 🐐 [React Testing Library](https://github.com/testing-library/react-testing-library)
 
 ## Why?
 
-As die-hard React developer I had to use Angular to help out our client and I was surprised how easy it is to bootstrap new Angular application. I can imagine that VueJs is so popular for a similar reason.
-
-Then I realized that React community does not have any standard when it comes to bootstrapping a new application.
+React community does not have any standard when it comes to bootstrapping new applications. 
 
 [Create React App](https://github.com/facebook/create-react-app) or [NextJs](https://github.com/zeit/next.js/) you say? **How many extra hours do you have to spend installing code quality tools and other libraries before you can actually start working on your project?**
 
-This is beginner friendly and **opinionated** React App Generator.
+This is beginner friendly and **opinionated** React app generator.
