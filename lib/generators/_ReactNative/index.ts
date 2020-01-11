@@ -57,7 +57,7 @@ export const initReactNativeApp = async (context: IContext) => {
 
   await generate({
     name: moduleName,
-    source: 'tempaltes',
+    source: 'templates',
     destination: '.',
     context: { projectName: context.projectName },
   })
