@@ -19,7 +19,11 @@ export const createReactApp = async (context: IMainState) => {
   await addEditorconfig()
   await addBrowserlist()
   await addPrettier({ projectFolder: context.projectFolder })
-  await addStylelint({ appType: context.appType })
+  await addStylelint({
+    projectType: context.projectType,
+    appType: context.appType,
+    projectFolder: context.projectFolder,
+  })
   await addEslint({ projectType: context.projectType, appType: context.appType, projectFolder: context.projectFolder })
 
   // Git hooks

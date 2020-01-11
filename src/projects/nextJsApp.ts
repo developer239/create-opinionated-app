@@ -12,14 +12,18 @@ export const createNextJsApp = async (context: IMainState) => {
   // Init app
   await initNextJsApp({
     projectName: context.projectName,
-    projectFolder: context.projectFolder
+    projectFolder: context.projectFolder,
   })
 
   // Code quality tools
   await addEditorconfig()
   await addBrowserlist()
   await addPrettier({ projectFolder: context.projectFolder })
-  await addStylelint({ appType: context.appType })
+  await addStylelint({
+    projectType: context.projectType,
+    appType: context.appType,
+    projectFolder: context.projectFolder,
+  })
   await addEslint({ projectType: context.projectType, appType: context.appType, projectFolder: context.projectFolder })
 
   // Git hooks

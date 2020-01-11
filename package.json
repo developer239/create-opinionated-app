@@ -26,7 +26,9 @@
     "inquirer": "^7.0.2",
     "ora": "4.0.3",
     "ramda": "^0.26.1",
+    "recursive-copy": "^2.0.10",
     "shelljs": "^0.8.3",
+    "through2": "^3.0.1",
     "update-notifier": "^4.0.0",
     "validate-npm-package-name": "^3.0.0"
   },

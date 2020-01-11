@@ -11,12 +11,13 @@ export const createReactNativeApp = async (context: IMainState) => {
   // Init app
   await initReactNativeApp({
     projectFolder: context.projectFolder,
+    projectName: context.projectName,
   })
 
   // Code quality tools
   await addEditorconfig()
   await addPrettier({ projectFolder: context.projectFolder })
-  await addStylelint({ appType: context.appType })
+  await addStylelint({ projectType: context.projectType, appType: context.appType, projectFolder: context.projectFolder })
   await addEslint({ projectType: context.projectType, appType: context.appType, projectFolder: context.projectFolder })
 
   // Git hooks
