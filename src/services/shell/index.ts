@@ -35,15 +35,15 @@ const exec = (command: string, silent = true) => {
   return shelljs.exec(command, { silent })
 }
 
-const execInProject = (projectName: string) => (command: string) => {
-  return exec(`cd ${projectName} && ${command}`)
+const execInProject = (projectFolder: string) => (command: string) => {
+  return exec(`cd ${projectFolder} && ${command}`)
 }
 
-const execInProjectWithSpinner = (projectName: string) => (
+const execInProjectWithSpinner = (projectFolder: string) => (
   command: string,
   successMessage: string
 ) => {
-  const goToProjectDir = `cd ${projectName} && `
+  const goToProjectDir = `cd ${projectFolder} && `
   return execWithSpinner(`${goToProjectDir}${command}`, successMessage, {
     trim: goToProjectDir,
   })

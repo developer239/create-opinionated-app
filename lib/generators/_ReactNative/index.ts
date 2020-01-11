@@ -1,7 +1,7 @@
 import { shell } from 'services/shell'
 import { generate } from 'services/generator'
 import { json } from 'services/json'
-import { addDependencies, removeFiles } from 'services/exec'
+import { addDependencies, removeDependencies, removeFiles } from 'services/exec'
 
 export const moduleName = '_ReactNative'
 
@@ -23,6 +23,7 @@ export const initReactNativeApp = async (context: IContext) => {
     'babel.config.js',
     'index.js'
   ])
+  await removeFiles('__tests__', ['__tests__'], true)
 
   await json.update('package.json')(
     {
@@ -54,6 +55,11 @@ export const initReactNativeApp = async (context: IContext) => {
     '@types/node @types/styled-components',
     'babel-plugin-module-resolver',
   ], true)
+  await removeDependencies('react-test-renderer', ['react-test-renderer', '@types/react-test-renderer'])
+  await addDependencies('react-native-config', ['react-native-config'])
+
+  await shell.execInProjectWithSpinner(context.projectFolder)('react-native link', 'linked RN dependencies')
+  await shell.execInProjectWithSpinner(context.projectFolder)('cd ios && pod install', 'installed pod files')
 
   await generate({
     name: moduleName,

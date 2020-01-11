@@ -7,6 +7,12 @@ export const addDependencies = (name: string, libraries: string[], isDev = false
     `[dependencies][add] ${name}`
   )
 
+export const removeDependencies = (name: string, libraries: string[]) =>
+  shell.execInProjectWithSpinner(state.projectFolder)(
+    `yarn add ${libraries.join(' ')}`,
+    `[dependencies][remove] ${name}`
+  )
+
 export const moveToDevDependencies = (name: string, libraries: string[]) =>
   shell.execInProjectWithSpinner(state.projectFolder)(
     `yarn remove ${libraries.join(' ')} && yarn add ${libraries.join(' ')} -D`,
