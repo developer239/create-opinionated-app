@@ -17,8 +17,8 @@ export const createReactNativeApp = async (context: IMainState) => {
   // Code quality tools
   await addEditorconfig()
   await addPrettier({ projectFolder: context.projectFolder })
-  await addStylelint({ projectType: context.projectType, appType: context.appType, projectFolder: context.projectFolder })
-  await addEslint({ projectType: context.projectType, appType: context.appType, projectFolder: context.projectFolder })
+  await addStylelint({ appType: context.appType, projectFolder: context.projectFolder })
+  await addEslint({ appType: context.appType, projectFolder: context.projectFolder })
 
   // Git hooks
   await setUpGitHooks()

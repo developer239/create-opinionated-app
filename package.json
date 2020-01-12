@@ -9,7 +9,8 @@
     "build": "rollup -c",
     "watch": "rollup -c -w",
     "lint:ts": "eslint --ext .ts,.tsx src",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "type-check": "tsc"
   },
   "engines": {
     "node": ">=12",
