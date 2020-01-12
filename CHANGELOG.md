@@ -1,3 +1,11 @@
+## [1.9.2](https://github.com/developer239/create-opinionated-react-app/compare/v1.9.1...v1.9.2) (2020-01-12)
+
+
+### Bug Fixes
+
+* apply more fixes ([74b9ba7](https://github.com/developer239/create-opinionated-react-app/commit/74b9ba7b087a494a39e9c49fb91e87cf822a2477))
+* pass correct context to react-native template generators ([22b768b](https://github.com/developer239/create-opinionated-react-app/commit/22b768b88e9bb01e0a166daff23b50128d8b33c7))
+
 ## [1.9.1](https://github.com/developer239/create-opinionated-react-app/compare/v1.9.0...v1.9.1) (2020-01-12)
 
 
