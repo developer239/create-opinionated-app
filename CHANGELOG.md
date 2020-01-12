@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/developer239/create-opinionated-react-app/compare/v1.9.0...v1.9.1) (2020-01-12)
+
+
+### Bug Fixes
+
+* react native template files ([8308167](https://github.com/developer239/create-opinionated-react-app/commit/8308167f9b1cd89f27d0a2ad7f7f0bef4600c376))
+
 # [1.9.0](https://github.com/developer239/create-opinionated-react-app/compare/v1.8.1...v1.9.0) (2020-01-12)
 
 
