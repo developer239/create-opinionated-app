@@ -53,6 +53,9 @@ export const initReactNativeApp = async (context: IContext) => {
       ...jsonFile,
       scripts: {
         ...jsonFile.scripts,
+        'android': undefined,
+        'ios': undefined,
+        'lint': undefined,
         'start': 'react-native start --reset-cache',
         'start:android': 'react-native run-android',
         'start:ios': 'react-native run-ios',

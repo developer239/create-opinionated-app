@@ -36,7 +36,7 @@ target '{{ projectFolder }}' do
 
   pod 'ReactNativeNavigation', :podspec => '../node_modules/react-native-navigation/ReactNativeNavigation.podspec'
 
-  target 'someappTests' do
+  target '{{ projectFolder }}Tests' do
     inherit! :search_paths
     # Pods for testing
   end
