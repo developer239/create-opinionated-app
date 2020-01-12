@@ -80,7 +80,7 @@ export const initReactNativeApp = async (context: IContext) => {
     name: moduleName,
     source: 'templates/base',
     destination: '.',
-    context: { projectName: context.projectName },
+    context,
   })
 
   switch (navigationType) {
@@ -91,7 +91,7 @@ export const initReactNativeApp = async (context: IContext) => {
         name: moduleName,
         source: 'templates/react-navigation',
         destination: '.',
-        context: { projectName: context.projectName },
+        context,
       })
       break
     case NavigationType.WIX:
@@ -101,19 +101,19 @@ export const initReactNativeApp = async (context: IContext) => {
         name: moduleName,
         source: 'templates/react-native-navigation',
         destination: '.',
-        context: { projectName: context.projectName },
+        context,
       })
       await generate({
         name: moduleName,
         source: 'templates/react-native-navigation-app-delegate-fix',
         destination: `ios/${context.projectFolder}`,
-        context: { projectName: context.projectName },
+        context,
       })
       await generate({
         name: moduleName,
         source: 'templates/react-native-navigation-main-activity-fix',
         destination: `android/app/src/main/java/com/${context.projectFolder}`,
-        context: { projectName: context.projectName },
+        context,
       })
       break
   }
