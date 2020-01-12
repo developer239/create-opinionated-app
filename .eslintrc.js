@@ -5,7 +5,4 @@ module.exports = {
     'prettier',
     'prettier/react'
   ],
-  rules: {
-    'security/detect-non-literal-fs-filename': 1
-  }
 }

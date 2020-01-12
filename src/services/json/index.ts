@@ -1,5 +1,3 @@
-// TODO: fix lint issues
-/* eslint-disable */
 import path from 'path'
 import fs from 'fs'
 import ora from 'ora'
@@ -21,7 +19,10 @@ const update = (fileName: string) => async (
 
   const jsonFilePath = path.join(process.cwd(), projectName, fileName)
 
+  // These two lines break about 10 different eslint rules 🙈
+  // eslint-disable-next-line
   delete require.cache[jsonFilePath]
+  // eslint-disable-next-line
   const jsonFile = require(jsonFilePath)
 
   const updatedJsonFile = await updateFile(jsonFile)

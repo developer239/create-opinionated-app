@@ -1,34 +1,27 @@
+import path from 'path'
 import ora from 'ora'
-import Handlebars from 'handlebars'
-import { saveTemplate } from 'services/template'
+import { copyFiles } from '../template'
 
 interface IOptions {
   name: string
-  templateFiles: Array<{
-    name: string
-    data: string
-    destination: string[]
-    context?: Object
-  }>
+  source: string
+  destination: string
+  context?: Object
 }
 
 export const generate = async ({
   name,
-  templateFiles
+  source,
+  destination,
+  context,
 }: IOptions) => {
   const spinner = ora()
-
   spinner.start(`[generator] running ${name}`)
 
   try {
-    for(const templateFile of templateFiles) {
-      const compileTemplate = Handlebars.compile(templateFile.data)
-      // eslint-disable-next-line no-await-in-loop
-      await saveTemplate(templateFile.destination, compileTemplate(templateFile.context))
-    }
-
+    await copyFiles(path.join(name, source), destination, context)
     spinner.succeed(`[generator] create ${name}`)
-  } catch(error) {
+  } catch (error) {
     spinner.warn(`[generator] ${name} error: ${error}`)
   }
 }
