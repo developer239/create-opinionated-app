@@ -1,3 +1,10 @@
+## [1.9.3](https://github.com/developer239/create-opinionated-react-app/compare/v1.9.2...v1.9.3) (2020-01-12)
+
+
+### Bug Fixes
+
+* remove default android, ios, lint scripts ([90fe486](https://github.com/developer239/create-opinionated-react-app/commit/90fe486edf5fc6261cd7e725da21c1c48922874e))
+
 ## [1.9.2](https://github.com/developer239/create-opinionated-react-app/compare/v1.9.1...v1.9.2) (2020-01-12)
 
 
