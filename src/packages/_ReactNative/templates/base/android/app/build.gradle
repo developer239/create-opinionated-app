@@ -129,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.someapp"
+        applicationId "com.{{ projectFolder }}"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
