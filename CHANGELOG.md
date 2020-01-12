@@ -1,3 +1,32 @@
+# [1.9.0](https://github.com/developer239/create-opinionated-react-app/compare/v1.8.1...v1.9.0) (2020-01-12)
+
+
+### Bug Fixes
+
+* addDependencies calls ([963d0e7](https://github.com/developer239/create-opinionated-react-app/commit/963d0e7bf3b745d24c2630023ac1403de672f7f3))
+* generators in exec service ([02d4cfc](https://github.com/developer239/create-opinionated-react-app/commit/02d4cfccb340d0d253bc0caa023798beb53374e5))
+* minor fixes ([8662b4b](https://github.com/developer239/create-opinionated-react-app/commit/8662b4bafe667ca0787a2e60e037b1ac105c73e2))
+* mkdir exec function ([025d642](https://github.com/developer239/create-opinionated-react-app/commit/025d64291126bfb011d80f7d0f14ae51cb4a6cbd))
+* remove some-app from git ([e1c2eff](https://github.com/developer239/create-opinionated-react-app/commit/e1c2eff518398f9db06f16d486e5cfa533377524))
+* types ([30605c2](https://github.com/developer239/create-opinionated-react-app/commit/30605c29aa7cea1186f71e0d14b4588791ae4017))
+
+
+### Features
+
+* add option to generate react native app with react-navigation ([ef26e1e](https://github.com/developer239/create-opinionated-react-app/commit/ef26e1eb8e6e921dca8b55421e6b01881e6ce26e))
+* add react-native-navigation configuration ([d681a33](https://github.com/developer239/create-opinionated-react-app/commit/d681a33d361c0a672ae5ee218197dddba07d9612))
+* bootstrap application ([163d1bb](https://github.com/developer239/create-opinionated-react-app/commit/163d1bbbf45bf121e49eee5298c2570649650da3))
+* implement major code changes ([b76b59e](https://github.com/developer239/create-opinionated-react-app/commit/b76b59e62bde71b2ec59a05dabcaa1b1b55a98e6))
+* improve console log experience ([8a83980](https://github.com/developer239/create-opinionated-react-app/commit/8a83980479879cb076494832fa8a5af91f122f04))
+* improve CRA generator ([bfe2224](https://github.com/developer239/create-opinionated-react-app/commit/bfe2224454b63aec9b9102590c266ee6ac86b065))
+* improve Next.js generator ([3b39bd2](https://github.com/developer239/create-opinionated-react-app/commit/3b39bd2fabb64ab6a29a17380ccf90305d441d66))
+* improve react native app generator ([a6074e0](https://github.com/developer239/create-opinionated-react-app/commit/a6074e061751becc1dd638799ef45bafc9e04cf9))
+* improve react-native generator ([49cd89e](https://github.com/developer239/create-opinionated-react-app/commit/49cd89eda7a0bcf0ef871daa768e778efc6db8eb))
+* rewrite template/generator services ([3e04d33](https://github.com/developer239/create-opinionated-react-app/commit/3e04d3320b7efb6dffca7bb571a2b7d91e26a809))
+* update code quality tools ([02a4f11](https://github.com/developer239/create-opinionated-react-app/commit/02a4f1191da4ce69ff47cd41e0aa3a9a6c0ef980))
+* use @code-quality/eslint-config-jest in all generated templates ([d2d44ef](https://github.com/developer239/create-opinionated-react-app/commit/d2d44ef574b554521d3df15421cd23283cd2bec6))
+* use figlet to show big text ([6752dab](https://github.com/developer239/create-opinionated-react-app/commit/6752dab35d2f5da21aa6c1a6c6802c5ea8046ec5))
+
 ## [1.8.1](https://github.com/developer239/create-opinionated-react-app/compare/v1.8.0...v1.8.1) (2020-01-06)
 
 
