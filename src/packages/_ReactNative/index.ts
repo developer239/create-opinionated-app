@@ -30,7 +30,7 @@ export const initReactNativeApp = async (context: IContext) => {
   })
 
   await shell.execWithSpinner(
-    `npx react-native init ${context.projectFolder}`,
+    `npx react-native init ${context.projectFolder} --version 0.61.5`,
     '[react-native-app] initialized',
   )
   await removeFiles('default project files', [
@@ -91,6 +91,28 @@ export const initReactNativeApp = async (context: IContext) => {
         name: moduleName,
         source: 'templates/react-navigation',
         destination: '.',
+        context: { projectName: context.projectName },
+      })
+      break
+    case NavigationType.WIX:
+      await addDependencies('react-native-navigation', ['react-native-navigation'])
+
+      await generate({
+        name: moduleName,
+        source: 'templates/react-native-navigation',
+        destination: '.',
+        context: { projectName: context.projectName },
+      })
+      await generate({
+        name: moduleName,
+        source: 'templates/react-native-navigation-app-delegate-fix',
+        destination: `ios/${context.projectFolder}`,
+        context: { projectName: context.projectName },
+      })
+      await generate({
+        name: moduleName,
+        source: 'templates/react-native-navigation-main-activity-fix',
+        destination: `android/app/src/main/java/com/${context.projectFolder}`,
         context: { projectName: context.projectName },
       })
       break
