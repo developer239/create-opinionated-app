@@ -98,7 +98,7 @@ export const initReactNativeApp = async (context: IContext) => {
       })
       break
     case NavigationType.WIX:
-      await addDependencies('react-native-navigation', ['react-native-navigation'])
+      await addDependencies('react-native-navigation', ['react-native-navigation@4.4.0'])
 
       await generate({
         name: moduleName,
