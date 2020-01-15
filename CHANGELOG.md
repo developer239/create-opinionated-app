@@ -1,3 +1,10 @@
+## [1.9.4](https://github.com/developer239/create-opinionated-react-app/compare/v1.9.3...v1.9.4) (2020-01-15)
+
+
+### Bug Fixes
+
+* lock RNN version to 4.4.0 ([346f2a1](https://github.com/developer239/create-opinionated-react-app/commit/346f2a186cd839ef7179169be732043064d70b47))
+
 ## [1.9.3](https://github.com/developer239/create-opinionated-react-app/compare/v1.9.2...v1.9.3) (2020-01-12)
 
 
