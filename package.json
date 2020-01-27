@@ -52,7 +52,7 @@
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-import": "^2.20.0",
     "husky": "^4.0.0",
-    "lint-staged": "^9.5.0",
+    "lint-staged": "^10.0.3",
     "prettier": "^1.19.1",
     "rollup": "^1.28.0",
     "rollup-plugin-copy": "^3.1.0",
