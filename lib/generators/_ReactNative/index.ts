@@ -17,6 +17,7 @@ enum NavigationType {
   REACT_NAVIGATION = 'REACT_NAVIGATION',
 }
 
+// eslint-disable-next-line
 export const initReactNativeApp = async (context: IContext) => {
   const { navigationType } = await prompt({
     name: 'navigationType',
@@ -64,6 +65,51 @@ export const initReactNativeApp = async (context: IContext) => {
     }),
   )
 
+  await json.update('package.json')(
+    {
+      projectName: context.projectFolder,
+      message: '[json] adding detox configuration',
+      messageSuccess: '[json] detox configuration',
+    },
+    jsonFile => ({
+      ...jsonFile,
+      scripts: {
+        ...jsonFile.scripts,
+        'detox:ios': 'detox test -c ios.sim.debug',
+        'detox:ios:build': 'detox build -c ios.sim.debug',
+        'detox:android': 'detox test -c android.emu.release',
+        'detox:android:build': 'detox build -c android.emu.release',
+      },
+      detox: {
+        configurations: {
+          'ios.sim.debug': {
+            binaryPath: `ios/build/Build/Products/Debug-iphonesimulator/${context.projectFolder}.app`,
+            build: `xcodebuild -workspace ios/${context.projectFolder}.xcworkspace -scheme ${context.projectFolder} -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build`,
+            type: 'ios.simulator',
+            device: {
+              type: 'iPhone 11 Pro',
+            },
+          },
+          'android.emu.release': {
+            binaryPath: 'android/app/build/outputs/apk/release/app-release.apk',
+            build: 'cd android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd ..',
+            type: 'android.emulator',
+            device: {
+              avdName: 'Nexus_5X_API_26',
+            },
+          },
+        },
+        'test-runner': 'jest',
+      },
+    }),
+  )
+  await generate({
+    name: moduleName,
+    source: 'templates/detox-android-test-class',
+    destination: `android/app/src/androidTest/java/com/${context.projectFolder}`,
+    context,
+  })
+
   await addDependencies('styled-components', ['styled-components'])
   await addDependencies('types and test tools', [
     'typescript',
@@ -78,6 +124,7 @@ export const initReactNativeApp = async (context: IContext) => {
   ], true)
   await removeDependencies('react-test-renderer', ['react-test-renderer', '@types/react-test-renderer'])
   await addDependencies('react-native-config', ['react-native-config'])
+  await addDependencies('detox', ['detox@15.1.4', '@types/detox'], true)
 
   await generate({
     name: moduleName,
@@ -98,7 +145,7 @@ export const initReactNativeApp = async (context: IContext) => {
       })
       break
     case NavigationType.WIX:
-      await addDependencies('react-native-navigation', ['react-native-navigation'])
+      await addDependencies('react-native-navigation', ['react-native-navigation@4.4.0'])
 
       await generate({
         name: moduleName,
