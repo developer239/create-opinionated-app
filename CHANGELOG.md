@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/developer239/create-opinionated-app/compare/v1.10.0...v1.11.0) (2020-02-08)
+
+
+### Features
+
+* ignore e2e folder in react-native jest ([b37ba1d](https://github.com/developer239/create-opinionated-app/commit/b37ba1daddcac5935c86bda4f2ffd9d76c09dc67))
+
 # [1.10.0](https://github.com/developer239/create-opinionated-app/compare/v1.9.4...v1.10.0) (2020-02-08)
 
 
