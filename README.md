@@ -1,8 +1,8 @@
-[![CircleCI](https://circleci.com/gh/developer239/create-opinionated-react-app/tree/master.svg?style=svg)](https://circleci.com/gh/developer239/create-opinionated-react-app/tree/master)
-[![Maintainability](https://api.codeclimate.com/v1/badges/ff9bf164310d6fdaa9ac/maintainability)](https://codeclimate.com/github/developer239/create-opinionated-react-app/maintainability)
-[![Greenkeeper badge](https://badges.greenkeeper.io/developer239/create-opinionated-react-app.svg)](https://greenkeeper.io/)
+[![CircleCI](https://circleci.com/gh/developer239/create-opinionated-app/tree/master.svg?style=svg)](https://circleci.com/gh/developer239/create-opinionated-app/tree/master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ff9bf164310d6fdaa9ac/maintainability)](https://codeclimate.com/github/developer239/create-opinionated-app/maintainability)
+[![Greenkeeper badge](https://badges.greenkeeper.io/developer239/create-opinionated-app.svg)](https://greenkeeper.io/)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
-[![npm version](http://img.shields.io/npm/v/create-opinionated-react-app.svg?style=flat)](https://npmjs.org/package/create-opinionated-react-app "View this project on npm")
+[![npm version](http://img.shields.io/npm/v/create-opinionated-app.svg?style=flat)](https://npmjs.org/package/create-opinionated-app "View this project on npm")
 
 # Create Opinionated React App
 
@@ -13,14 +13,14 @@
 Run following command:
 
 ```bash
-$ npx create-opinionated-react-app
+$ npx create-opinionated-app
 ```
 
 Or you can install this library as global dependency:
 
 ```bash
-$ npm install -g create-opinionated-react-app
-$ create-opinionated-react-app
+$ npm install -g create-opinionated-app
+$ create-opinionated-app
 ```
 
 ## What does it do
@@ -33,7 +33,7 @@ All of us need Typescript, CSS-in-JS, code quality tools and basic configuration
 
 #### Core Project Dependencies
 
-- [x] ![TS](https://github.com/developer239/create-opinionated-react-app/blob/master/typescript.svg) Strong [types](https://www.typescriptlang.org) 
+- [x] ![TS](https://github.com/developer239/create-opinionated-app/blob/master/typescript.svg) Strong [types](https://www.typescriptlang.org) 
 - [x] [Webpack](https://github.com/webpack), [Babel](https://github.com/babel/babel) and other essential libraries...
 - [x] 💅 [Styled Components](https://github.com/styled-components/styled-components) for every React application
 - [x] Router [optional] 

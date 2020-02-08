@@ -1,8 +1,8 @@
 {
-  "name": "create-opinionated-react-app",
+  "name": "create-opinionated-app",
   "version": "1.9.4",
   "bin": "lib/index.js",
-  "repository": "https://github.com/developer239/create-opinionated-react-app.git",
+  "repository": "https://github.com/developer239/create-opinionated-app.git",
   "author": "Michal Jarnot <m.jarnot@yahoo.com>",
   "license": "MIT",
   "scripts": {
