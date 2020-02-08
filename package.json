@@ -60,5 +60,28 @@
     "rollup-plugin-typescript2": "^0.25.3",
     "semantic-release": "^15.14.0",
     "typescript": "^3.7.4"
-  }
+  },
+  "keywords": [
+    "node",
+    "react",
+    "react.js",
+    "react-native",
+    "next.js",
+    "next",
+    "cra",
+    "create-react-app",
+    "eslint",
+    "prettier",
+    "code-quality",
+    "tool",
+    "generator",
+    "boilerplate",
+    "typescript",
+    "react-router",
+    "webpack",
+    "generator",
+    "boilerplate",
+    "universal",
+    "standard"
+  ]
 }
