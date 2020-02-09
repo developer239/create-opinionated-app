@@ -66,8 +66,15 @@ export const initReactApp = async (context: IContext) => {
       delete jsonFile.browserslist
       delete jsonFile.eslintConfig
       delete jsonFile.scripts.eject
+      delete jsonFile.scripts.start
 
-      return jsonFile
+      return {
+        ...jsonFile,
+        scripts: {
+          ...jsonFile.scripts,
+          dev: 'react-scripts start'
+        }
+      }
     },
   )
 

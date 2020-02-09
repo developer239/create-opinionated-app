@@ -1,3 +1,4 @@
+import { prompt } from 'inquirer'
 import { addBrowserlist } from 'packages/browserslist'
 import { initReactApp } from 'packages/_CreateReactApp'
 import { addEditorconfig } from 'packages/editorconfig'
@@ -6,6 +7,7 @@ import { addFilesToGit } from 'packages/git/add'
 import { addPrettier } from 'packages/prettier'
 import { addStylelint } from 'packages/stylelint'
 import { addEslint } from 'packages/eslint'
+import { addCypress } from 'packages/cypress'
 import { IMainState } from 'state.types'
 
 export const createReactApp = async (context: IMainState) => {
@@ -14,6 +16,20 @@ export const createReactApp = async (context: IMainState) => {
     projectFolder: context.projectFolder,
     projectName: context.projectName,
   })
+
+  const { isCypress } = await prompt({
+    name: 'isCypress',
+    type: 'list',
+    message: 'Do you want to use cypress?',
+    choices: [
+      { name: 'No', value: false },
+      { name: 'Yes', value: true },
+    ],
+  })
+
+  if (isCypress) {
+    await addCypress({ projectFolder: context.projectFolder, projectName: context.projectName })
+  }
 
   // Code quality tools
   await addEditorconfig()

@@ -59,7 +59,8 @@ You can find config files for these hand-crafted [code quality resources here](h
 
 - [x] [Jest](https://github.com/facebook/jest) for cross-platform testing
 - [x] 🐐 [React Testing Library](https://github.com/testing-library/react-testing-library)
-- [x] [Detox](https://github.com/wix/Detox) for native applications
+- [x] [Cypress](https://github.com/wix/Detox) E2E tests for web applications
+- [x] [Detox](https://github.com/cypress-io/cypress) E2E tests for native applications
 
 ## Contribution
 
