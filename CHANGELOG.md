@@ -1,3 +1,16 @@
+# [1.12.0](https://github.com/developer239/create-opinionated-app/compare/v1.11.1...v1.12.0) (2020-02-09)
+
+
+### Bug Fixes
+
+* do not run yarn install if cached ([049ce51](https://github.com/developer239/create-opinionated-app/commit/049ce51848510a524a0151e656c44c9b619bfa5b))
+* typos in yml configuration ([77e8c53](https://github.com/developer239/create-opinionated-app/commit/77e8c535b370e570329b9a0db39209e5d3c28e36))
+
+
+### Features
+
+* update detox configuration ([7f99d5d](https://github.com/developer239/create-opinionated-app/commit/7f99d5d36539493a6c03844fb2703da9ba90e9e7))
+
 ## [1.11.1](https://github.com/developer239/create-opinionated-app/compare/v1.11.0...v1.11.1) (2020-02-09)
 
 
