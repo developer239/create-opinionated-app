@@ -22,7 +22,9 @@ jobs:
             path: node_modules
             key: node-modules-${{ hashFiles('**/yarn.lock') }}
 
-      - run: yarn install
+      - name: Install Dependencies
+          if: steps.cache.outputs.cache-hit != 'true'
+          run: yarn install
 
       - run: npx semantic-release
         env:
