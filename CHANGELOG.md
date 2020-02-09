@@ -1,3 +1,10 @@
+## [1.11.1](https://github.com/developer239/create-opinionated-app/compare/v1.11.0...v1.11.1) (2020-02-09)
+
+
+### Bug Fixes
+
+* detox types for RN application ([3f2c76d](https://github.com/developer239/create-opinionated-app/commit/3f2c76d363c973a935eb23e8d7304a38c68eb069))
+
 # [1.11.0](https://github.com/developer239/create-opinionated-app/compare/v1.10.0...v1.11.0) (2020-02-08)
 
 
