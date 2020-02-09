@@ -65,7 +65,7 @@ You can find config files for these hand-crafted [code quality resources here](h
 ##### Deployment
 
 - [x] [Heroku](https://github.com/heroku) optional Heroku configuration
-- [x] [GitHub Actions](https://github.com/features/actions) some generators can generate Actions workflow files
+- [x] [GitHub Actions](https://github.com/features/actions) some features generate GitHub Actions workflow files
 
 ## Contribution
 
