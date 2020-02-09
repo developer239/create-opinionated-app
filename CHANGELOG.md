@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/developer239/create-opinionated-app/compare/v1.12.0...v1.13.0) (2020-02-09)
+
+
+### Features
+
+* add optional cypress configuration for CRA and NEXT ([d4c7012](https://github.com/developer239/create-opinionated-app/commit/d4c701264f4890e75388a83e3c2a9e8fb9d5f9f9))
+
 # [1.12.0](https://github.com/developer239/create-opinionated-app/compare/v1.11.1...v1.12.0) (2020-02-09)
 
 
