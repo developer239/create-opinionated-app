@@ -1,3 +1,11 @@
+# [1.14.0](https://github.com/developer239/create-opinionated-app/compare/v1.13.0...v1.14.0) (2020-02-09)
+
+
+### Features
+
+* add optional Heroku configuration ([fcfd780](https://github.com/developer239/create-opinionated-app/commit/fcfd78099434d0f6765b16669b9e17a5daa4c273))
+* update documentation after adding cypresss ([838a597](https://github.com/developer239/create-opinionated-app/commit/838a597e148a343be2fe67cc4d55d7b3942d8905))
+
 # [1.13.0](https://github.com/developer239/create-opinionated-app/compare/v1.12.0...v1.13.0) (2020-02-09)
 
 
