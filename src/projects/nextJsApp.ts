@@ -11,12 +11,6 @@ import { addCypress } from 'packages/cypress'
 import { IMainState } from 'state.types'
 
 export const createNextJsApp = async (context: IMainState) => {
-  // Init app
-  await initNextJsApp({
-    projectName: context.projectName,
-    projectFolder: context.projectFolder,
-  })
-
   const { isCypress } = await prompt({
     name: 'isCypress',
     type: 'list',
@@ -25,6 +19,13 @@ export const createNextJsApp = async (context: IMainState) => {
       { name: 'No', value: false },
       { name: 'Yes', value: true },
     ],
+  })
+
+  // Init app
+  await initNextJsApp({
+    projectName: context.projectName,
+    projectFolder: context.projectFolder,
+    isCypress,
   })
 
   if (isCypress) {

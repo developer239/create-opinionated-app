@@ -6,6 +6,7 @@ export const moduleName = '_NextJs'
 interface IContext {
   projectFolder: string
   projectName: string
+  isCypress: boolean
 }
 
 export const initNextJsApp = async (context: IContext) => {

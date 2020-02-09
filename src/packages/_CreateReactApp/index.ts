@@ -9,6 +9,7 @@ export const moduleName = '_CreateReactApp'
 interface IContext {
   projectFolder: string
   projectName: string
+  isCypress: boolean
 }
 
 export const initReactApp = async (context: IContext) => {
@@ -82,9 +83,7 @@ export const initReactApp = async (context: IContext) => {
     name: moduleName,
     source: 'templates/base',
     destination: '.',
-    context: {
-      projectName: context.projectName,
-    },
+    context,
   })
 
   if (isRouter) {
