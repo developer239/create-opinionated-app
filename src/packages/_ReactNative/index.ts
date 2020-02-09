@@ -75,28 +75,25 @@ export const initReactNativeApp = async (context: IContext) => {
       ...jsonFile,
       scripts: {
         ...jsonFile.scripts,
-        'detox:ios': 'detox test -c ios.sim.debug',
-        'detox:ios:build': 'detox build -c ios.sim.debug',
-        'detox:android': 'detox test -c android.emu.release',
-        'detox:android:build': 'detox build -c android.emu.release',
+        'detox:build:ios': 'detox build e2e --configuration ios.sim.release',
+        'detox:test:ios': 'detox test e2e --configuration ios.sim.release --cleanup --debug-synchronization 200',
+        'detox:build:android': 'detox build -c android.emu.debug',
+        'detox:test:android': 'detox test -c android.emu.debug',
       },
-      detox: {
-        configurations: {
-          'ios.sim.debug': {
-            binaryPath: `ios/build/Build/Products/Debug-iphonesimulator/${context.projectFolder}.app`,
-            build: `xcodebuild -workspace ios/${context.projectFolder}.xcworkspace -scheme ${context.projectFolder} -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build`,
-            type: 'ios.simulator',
-            device: {
-              type: 'iPhone 11 Pro',
-            },
+      'detox': {
+        'configurations': {
+          'android.emu.debug': {
+            'binaryPath': 'android/app/build/outputs/apk/debug/app-debug.apk',
+            'build':
+              'cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..',
+            'type': 'android.emulator',
+            'name': 'emu',
           },
-          'android.emu.release': {
-            binaryPath: 'android/app/build/outputs/apk/release/app-release.apk',
-            build: 'cd android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd ..',
-            type: 'android.emulator',
-            device: {
-              avdName: 'Nexus_5X_API_26',
-            },
+          'ios.sim.release': {
+            'binaryPath': `ios/build/Build/Products/Release-iphonesimulator/${context.projectFolder}.app`,
+            'build': `xcodebuild -workspace ios/${context.projectFolder}.xcworkspace -scheme ${context.projectFolder} -configuration Release -sdk iphonesimulator -derivedDataPath ios/build`,
+            'type': 'ios.simulator',
+            'name': 'iPhone 8',
           },
         },
         'test-runner': 'jest',
