@@ -22,3 +22,16 @@ Run React App:
 - `cypress:open` open cypress client
 - `cypress:run` run cypress
 {{/if}}
+{{#if isHeroku}}
+
+## Deployment on Heroku
+
+This application is Heroku ready.
+
+1. Install Heroku CLI: `brew tap heroku/brew && brew install heroku`
+2. Login: `heroku login`
+3. Go to your app folder: `cd ~/{{ projectFolder }}`
+4. Create new project on Heroku `heroku create`
+
+You can find more information [here](https://devcenter.heroku.com/articles/heroku-cli).
+{{/if}}

@@ -62,6 +62,11 @@ You can find config files for these hand-crafted [code quality resources here](h
 - [x] [Cypress](https://github.com/wix/Detox) E2E tests for web applications
 - [x] [Detox](https://github.com/cypress-io/cypress) E2E tests for native applications
 
+##### Deployment
+
+- [x] [Heroku](https://github.com/heroku) optional Heroku configuration
+- [x] [GitHub Actions](https://github.com/features/actions) some generators can generate Actions workflow files
+
 ## Contribution
 
 If you are missing some features or if you have any ideas how to improve the code base feel free to create an issue. You **do not** have to create pull request. Right now the project is small so even bug reports or random thoughts can help. Thank you. 🙂

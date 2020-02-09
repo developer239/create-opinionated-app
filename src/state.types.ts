@@ -9,6 +9,11 @@ export enum AppType {
   MOBILE = 'mobile',
 }
 
+export enum DeploymentType {
+  NONE = 'none',
+  HEROKU = 'heroku',
+}
+
 export interface IMainState {
   projectFolder: string
   projectName: string

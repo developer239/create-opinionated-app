@@ -8,7 +8,8 @@ import { addStylelint } from 'packages/stylelint'
 import { addEslint } from 'packages/eslint'
 import { initNextJsApp } from 'packages/_NextJs'
 import { addCypress } from 'packages/cypress'
-import { IMainState } from 'state.types'
+import { addHerokuWeb } from 'packages/heroku'
+import { DeploymentType, IMainState, ProjectType } from 'state.types'
 
 export const createNextJsApp = async (context: IMainState) => {
   const { isCypress } = await prompt({
@@ -21,11 +22,23 @@ export const createNextJsApp = async (context: IMainState) => {
     ],
   })
 
+  const { deploymentType } = await prompt({
+    name: 'deploymentType',
+    type: 'list',
+    message: 'Do you want to generate CD configuration?',
+    choices: [
+      { name: 'No', value: DeploymentType.NONE },
+      { name: 'Heroku', value: DeploymentType.HEROKU },
+    ],
+  })
+  const isHeroku = deploymentType === DeploymentType.HEROKU
+
   // Init app
   await initNextJsApp({
     projectName: context.projectName,
     projectFolder: context.projectFolder,
     isCypress,
+    isHeroku,
   })
 
   if (isCypress) {
@@ -44,6 +57,14 @@ export const createNextJsApp = async (context: IMainState) => {
 
   // Git hooks
   await setUpGitHooks()
+
+  if (isHeroku) {
+    await addHerokuWeb({
+      projectName: context.projectName,
+      projectFolder: context.projectFolder,
+      projectType: ProjectType.NEXT,
+    })
+  }
 
   // Commit and share on GitHub
   await addFilesToGit({ projectFolder: context.projectFolder })

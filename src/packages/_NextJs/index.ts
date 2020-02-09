@@ -7,6 +7,7 @@ interface IContext {
   projectFolder: string
   projectName: string
   isCypress: boolean
+  isHeroku: boolean
 }
 
 export const initNextJsApp = async (context: IContext) => {

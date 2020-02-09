@@ -10,6 +10,7 @@ interface IContext {
   projectFolder: string
   projectName: string
   isCypress: boolean
+  isHeroku: boolean
 }
 
 export const initReactApp = async (context: IContext) => {
