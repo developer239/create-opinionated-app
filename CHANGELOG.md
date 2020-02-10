@@ -1,3 +1,11 @@
+## [1.14.1](https://github.com/developer239/create-opinionated-app/compare/v1.14.0...v1.14.1) (2020-02-10)
+
+
+### Bug Fixes
+
+* eslint issues for cypress files ([eb717e1](https://github.com/developer239/create-opinionated-app/commit/eb717e156b6315d800249629f35abc2b0c59c5b1))
+* fix eslint issues ([e415164](https://github.com/developer239/create-opinionated-app/commit/e415164602af3b737e857a11d2b3f5cc21203ade))
+
 # [1.14.0](https://github.com/developer239/create-opinionated-app/compare/v1.13.0...v1.14.0) (2020-02-09)
 
 
