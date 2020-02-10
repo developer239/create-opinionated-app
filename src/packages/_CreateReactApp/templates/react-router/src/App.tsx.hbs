@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { Layout } from 'components/Layout'
-import { GlobalStyles } from 'styles/global'
 import { HomePage, HOME_ROUTE } from 'pages/Home'
 import { NotFoundPage, NOT_FOUND_ROUTE } from 'pages/NotFound'
+import { GlobalStyles } from 'styles/global'
 
-const App: FC = () => (
+export const App: FC = () => (
   <Layout>
     <GlobalStyles />
     <Switch>
@@ -14,5 +14,3 @@ const App: FC = () => (
     </Switch>
   </Layout>
 )
-
-export { App }
