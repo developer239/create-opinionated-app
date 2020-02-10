@@ -1,5 +1,5 @@
-describe('home page', function () {
-  it('should show homepage', function () {
+describe('home page', () => {
+  it('should show homepage', () => {
     cy.visit('/')
     cy.contains('Hello {{ projectName }}! 👋')
   })
