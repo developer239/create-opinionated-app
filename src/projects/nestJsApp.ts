@@ -1,11 +1,11 @@
 import { prompt } from 'inquirer'
+import { initNestJsApp } from 'packages/_NestJs'
+import { addEditorconfig } from 'packages/editorconfig'
+import { addEslint } from 'packages/eslint'
+import { setUpGitHooks } from 'packages/git/hooks'
+import { addHerokuNode } from 'packages/heroku'
+import { addPrettier } from 'packages/prettier'
 import { DeploymentType, IMainState, ProjectType } from 'state.types'
-import { initNestJsApp } from '../packages/_NestJs'
-import { addEditorconfig } from '../packages/editorconfig'
-import { addPrettier } from '../packages/prettier'
-import { addEslint } from '../packages/eslint'
-import { setUpGitHooks } from '../packages/git/hooks'
-import { addHerokuNode } from '../packages/heroku'
 
 export const createNestJsApp = async (context: IMainState) => {
   const { deploymentType } = await prompt({

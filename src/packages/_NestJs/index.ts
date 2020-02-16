@@ -1,7 +1,7 @@
-import { shell } from 'services/shell'
 import { removeFiles } from 'services/exec'
 import { generate } from 'services/generator'
 import { json } from 'services/json'
+import { shell } from 'services/shell'
 
 export const moduleName = '_NestJs'
 

@@ -1,5 +1,5 @@
-import { state } from '../../state'
-import { shell } from '../shell'
+import { shell } from 'services/shell'
+import { state } from 'state'
 
 export const addDependencies = (name: string, libraries: string[], isDev = false) =>
   shell.execInProjectWithSpinner(state.projectFolder)(

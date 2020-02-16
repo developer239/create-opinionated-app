@@ -1,6 +1,6 @@
 import path from 'path'
 import ora from 'ora'
-import { copyFiles } from '../template'
+import { copyFiles } from 'services/template'
 
 interface IOptions {
   name: string

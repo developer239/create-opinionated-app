@@ -1,6 +1,6 @@
 import childProcess from 'child_process'
-import ora from 'ora'
 import chalk from 'chalk'
+import ora from 'ora'
 import shelljs from 'shelljs'
 
 // https://stackoverflow.com/questions/46354368/how-to-have-cli-spinner-run-during-shelljs-command-exec
