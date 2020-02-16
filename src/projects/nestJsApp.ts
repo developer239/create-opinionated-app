@@ -5,9 +5,20 @@ import { addEslint } from 'packages/eslint'
 import { setUpGitHooks } from 'packages/git/hooks'
 import { addHerokuNode } from 'packages/heroku'
 import { addPrettier } from 'packages/prettier'
-import { DeploymentType, IMainState, ProjectType } from 'state.types'
+import { DatabaseType, DeploymentType, IMainState, ProjectType } from 'state.types'
 
 export const createNestJsApp = async (context: IMainState) => {
+  const { databaseType } = await prompt({
+    name: 'databaseType',
+    type: 'list',
+    message: 'Do you want to use database?',
+    choices: [
+      { name: 'No', value: DatabaseType.NONE },
+      { name: 'SQL', value: DatabaseType.SQL },
+    ],
+  })
+  const isDatabase = databaseType === DatabaseType.SQL
+
   const { deploymentType } = await prompt({
     name: 'deploymentType',
     type: 'list',
@@ -23,6 +34,7 @@ export const createNestJsApp = async (context: IMainState) => {
     projectFolder: context.projectFolder,
     projectName: context.projectName,
     isHeroku,
+    isDatabase,
   })
 
   await addEditorconfig()
@@ -35,6 +47,7 @@ export const createNestJsApp = async (context: IMainState) => {
       projectName: context.projectName,
       projectFolder: context.projectFolder,
       projectType: ProjectType.NEST,
+      isDatabase,
     })
   }
 }

@@ -9,6 +9,7 @@ interface IContext {
   projectType: ProjectType
   projectFolder: string
   projectName: string
+  isDatabase?: boolean
 }
 
 const updatePackageJson = async (context: IContext) => {
