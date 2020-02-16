@@ -1,0 +1,18 @@
+module.exports = {
+  extends: [
+    '@code-quality/eslint-config-node',
+    '@code-quality/eslint-config-typescript',
+    '@code-quality/eslint-config-jest',
+    'prettier',
+  ],
+  rules: {
+    '@typescript-eslint/interface-name-prefix': 0,
+    '@typescript-eslint/explicit-function-return-type': 0,
+    '@typescript-eslint/no-explicit-any': 0,
+    'node/no-unpublished-import': 1,
+    'no-useless-constructor': 0,
+    '@typescript-eslint/no-parameter-properties': 0,
+    '@typescript-eslint/no-extraneous-class': 0,
+    'no-empty-function': 0,
+  },
+}

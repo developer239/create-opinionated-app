@@ -11,7 +11,7 @@ interface IContext {
   projectName: string
 }
 
-export const addHerokuWeb = async (context: IContext) => {
+const updatePackageJson = async (context: IContext) => {
   await json.update('package.json')(
     {
       projectName: context.projectFolder,
@@ -26,6 +26,10 @@ export const addHerokuWeb = async (context: IContext) => {
       },
     }),
   )
+}
+
+export const addHerokuWeb = async (context: IContext) => {
+  await updatePackageJson(context)
 
   await generate({
     name: moduleName,
@@ -51,4 +55,15 @@ export const addHerokuWeb = async (context: IContext) => {
       }),
     )
   }
+}
+
+export const addHerokuNode = async (context: IContext) => {
+  await updatePackageJson(context)
+
+  await generate({
+    name: moduleName,
+    source: 'templates/node',
+    destination: '.',
+    context,
+  })
 }

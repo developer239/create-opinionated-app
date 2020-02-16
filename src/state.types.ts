@@ -2,11 +2,13 @@ export enum ProjectType {
   CRA = 'cra',
   NEXT = 'next',
   RN = 'rn',
+  NEST= 'nest',
 }
 
 export enum AppType {
   WEB = 'web',
   MOBILE = 'mobile',
+  NODE = 'node',
 }
 
 export enum DeploymentType {
