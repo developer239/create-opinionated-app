@@ -61,11 +61,35 @@ You can find config files for these hand-crafted [code quality resources here](h
 - [x] 🐐 [React Testing Library](https://github.com/testing-library/react-testing-library)
 - [x] [Cypress](https://github.com/wix/Detox) E2E tests for web applications
 - [x] [Detox](https://github.com/cypress-io/cypress) E2E tests for native applications
+ 
+### Node Applications
+ 
+Backend projects are in a way much simpler to setup than frontend projects because libraries that are commonly used are more stable and Node environment is more predictable.
+
+- [x] [nest.js](https://github.com/nestjs/nest)
+
+##### Core Project Dependencies
+
+- [x] ![TS](https://github.com/developer239/create-opinionated-app/blob/master/typescript.svg) Strong [types](https://www.typescriptlang.org)  
+
+##### Code Quality Tools
+
+You can find config files for these hand-crafted [code quality resources here](https://github.com/code-quality-resources). ❤
+
+- [x] [Eslint](https://github.com/eslint/eslint) and [Stylelint](https://stylelint.io/)
+- [x] [Prettier](https://prettier.io)
+- [x] [EditorConfig](https://editorconfig.org/)
+- [x] 🐶 [Husky](https://github.com/typicode/husky)
+- [x] [CommitLint](https://github.com/conventional-changelog/commitlint)
+- [x] [LintStaged](https://github.com/okonet/lint-staged)
+
+##### Testing
+
+- [x] [Jest](https://github.com/facebook/jest) for cross-platform testing
 
 ##### Deployment
 
 - [x] [Heroku](https://github.com/heroku) optional Heroku configuration
-- [x] [GitHub Actions](https://github.com/features/actions) some features generate GitHub Actions workflow files
 
 ## Contribution
 
