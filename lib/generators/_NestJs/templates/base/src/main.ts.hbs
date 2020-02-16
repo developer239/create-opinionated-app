@@ -1,9 +1,13 @@
 import { NestFactory } from '@nestjs/core'
 import { AppModule } from 'src/modules/app'
+import { EnvConfigService } from 'src/modules/config/services/Env'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
-  await app.listen(3000)
+  const envConfig = app.get<EnvConfigService>('EnvConfigService')
+
+  await app.listen(envConfig.getInt('PORT'))
 }
 
-bootstrap().catch((error) => `Couldn't bootstrap appliaction: ${error}`)
+// eslint-disable-next-line
+bootstrap()

@@ -16,6 +16,12 @@ export enum DeploymentType {
   HEROKU = 'heroku',
 }
 
+
+export enum DatabaseType {
+  NONE = 'none',
+  SQL = 'sql',
+}
+
 export interface IMainState {
   projectFolder: string
   projectName: string

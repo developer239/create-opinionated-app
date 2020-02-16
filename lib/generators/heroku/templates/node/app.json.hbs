@@ -14,5 +14,10 @@
       "description": "We want to keep dev dependencies.",
       "value": "false"
     }
-  }
+  }{{#if isDatabase}},{{/if}}
+  {{#if isDatabase}}
+  "addons": [
+    "heroku-postgresql"
+  ]
+  {{/if}}
 }

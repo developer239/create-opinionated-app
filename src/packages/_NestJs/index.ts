@@ -1,4 +1,4 @@
-import { removeFiles } from 'services/exec'
+import { addDependencies, removeFiles } from 'services/exec'
 import { generate } from 'services/generator'
 import { json } from 'services/json'
 import { shell } from 'services/shell'
@@ -9,6 +9,7 @@ interface IContext {
   projectFolder: string
   projectName: string
   isHeroku: boolean
+  isDatabase: boolean
 }
 
 export const initNestJsApp = async (context: IContext) => {
@@ -16,7 +17,9 @@ export const initNestJsApp = async (context: IContext) => {
     `npx nest new ${context.projectFolder} --package-manager yarn`,
     '[nest.js] initialize',
   )
+  await addDependencies('install @nestjs/config', ['@nestjs/config'])
   await removeFiles('old project structure', ['src', 'test', '.eslintrc.js', '.prettierrc', 'README.md'], true)
+
   await json.update('package.json')(
     {
       projectName: context.projectFolder,
@@ -28,6 +31,8 @@ export const initNestJsApp = async (context: IContext) => {
       delete jsonFile.scripts.lint
       delete jsonFile.scripts['test:e2e']
 
+      jsonFile.scripts['start:dev'] = 'NODE_ENV=development nest start --watch'
+
       return jsonFile
     },
   )
@@ -38,4 +43,16 @@ export const initNestJsApp = async (context: IContext) => {
     destination: '.',
     context,
   })
+
+  if (context) {
+    await addDependencies('install typeorm', ['mysql', 'typeorm', 'pg-connection-string'])
+    await addDependencies('install typeorm @types', ['@types/pg-connection-string'], true)
+
+    await generate({
+      name: moduleName,
+      source: 'templates/typeorm',
+      destination: '.',
+      context,
+    })
+  }
 }
