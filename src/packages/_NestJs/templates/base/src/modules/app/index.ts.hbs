@@ -4,9 +4,11 @@ import { AppController } from 'src/modules/app/controller'
 import { AppService } from 'src/modules/app/service'
 
 @Module({
-  imports: [ConfigModule.forRoot({
-      envFilePath: process.env.NODE_ENV === 'development' ? '.development.env' : undefined,
-    })],
+  imports: [
+    ConfigModule.forRoot({
+      envFilePath: process.env.NODE_ENV === 'development' ? '.env.development' : undefined,
+    })
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
