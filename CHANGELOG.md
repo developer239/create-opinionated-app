@@ -1,3 +1,12 @@
+# [1.15.0](https://github.com/developer239/create-opinionated-app/compare/v1.14.1...v1.15.0) (2020-02-16)
+
+
+### Features
+
+* create nest js generator ([3965542](https://github.com/developer239/create-opinionated-app/commit/39655427678e946e1687b0065d59864a8211403e))
+* update dependencies and lint files ([5808676](https://github.com/developer239/create-opinionated-app/commit/58086765177d9b39ee9df1ac68ffec7fb3ebc5ac))
+* update nestjs generator ([d079f71](https://github.com/developer239/create-opinionated-app/commit/d079f71654090393b281d8102c4f091918fa5dab))
+
 ## [1.14.1](https://github.com/developer239/create-opinionated-app/compare/v1.14.0...v1.14.1) (2020-02-10)
 
 
