@@ -44,8 +44,8 @@ export const initNestJsApp = async (context: IContext) => {
     context,
   })
 
-  if (context) {
-    await addDependencies('install typeorm', ['mysql', 'typeorm', 'pg-connection-string'])
+  if (context.isDatabase) {
+    await addDependencies('install typeorm', ['pg', 'typeorm', '@nestjs/typeorm', 'pg-connection-string'])
     await addDependencies('install typeorm @types', ['@types/pg-connection-string'], true)
 
     await generate({
