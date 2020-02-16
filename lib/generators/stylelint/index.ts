@@ -1,8 +1,8 @@
 import path from 'path'
-import { AppType } from 'state.types'
-import { json } from 'services/json'
-import { generate } from 'services/generator'
 import { addDependencies } from 'services/exec'
+import { generate } from 'services/generator'
+import { json } from 'services/json'
+import { AppType } from 'state.types'
 
 const moduleName = 'stylelint'
 

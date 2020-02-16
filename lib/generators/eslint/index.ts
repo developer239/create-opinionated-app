@@ -1,8 +1,8 @@
 import path from 'path'
-import { generate } from 'services/generator'
-import { AppType } from 'state.types'
 import { addDependencies } from 'services/exec'
+import { generate } from 'services/generator'
 import { json } from 'services/json'
+import { AppType } from 'state.types'
 
 const moduleName = 'eslint'
 
