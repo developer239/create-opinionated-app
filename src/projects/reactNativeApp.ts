@@ -1,10 +1,10 @@
 import { initReactNativeApp } from 'packages/_ReactNative'
 import { addEditorconfig } from 'packages/editorconfig'
-import { addPrettier } from 'packages/prettier'
-import { addStylelint } from 'packages/stylelint'
 import { addEslint } from 'packages/eslint'
 import { addFilesToGit } from 'packages/git/add'
 import { setUpGitHooks } from 'packages/git/hooks'
+import { addPrettier } from 'packages/prettier'
+import { addStylelint } from 'packages/stylelint'
 import { IMainState } from 'state.types'
 
 export const createReactNativeApp = async (context: IMainState) => {

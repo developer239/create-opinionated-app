@@ -1,6 +1,6 @@
 import * as chalk from 'chalk'
-import { shell } from 'services/shell'
 import { logger } from 'services/log'
+import { shell } from 'services/shell'
 
 export const checkNpx = async () => {
   const { code } = shell.exec('npx --version')

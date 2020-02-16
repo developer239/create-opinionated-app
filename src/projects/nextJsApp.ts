@@ -1,14 +1,14 @@
 import { prompt } from 'inquirer'
+import { initNextJsApp } from 'packages/_NextJs'
 import { addBrowserlist } from 'packages/browserslist'
+import { addCypress } from 'packages/cypress'
 import { addEditorconfig } from 'packages/editorconfig'
+import { addEslint } from 'packages/eslint'
 import { addFilesToGit } from 'packages/git/add'
 import { setUpGitHooks } from 'packages/git/hooks'
+import { addHerokuWeb } from 'packages/heroku'
 import { addPrettier } from 'packages/prettier'
 import { addStylelint } from 'packages/stylelint'
-import { addEslint } from 'packages/eslint'
-import { initNextJsApp } from 'packages/_NextJs'
-import { addCypress } from 'packages/cypress'
-import { addHerokuWeb } from 'packages/heroku'
 import { DeploymentType, IMainState, ProjectType } from 'state.types'
 
 export const createNextJsApp = async (context: IMainState) => {

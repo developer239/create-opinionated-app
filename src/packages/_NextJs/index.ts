@@ -1,5 +1,5 @@
-import { generate } from 'services/generator'
 import { addDependencies, makeDir } from 'services/exec'
+import { generate } from 'services/generator'
 
 export const moduleName = '_NextJs'
 
