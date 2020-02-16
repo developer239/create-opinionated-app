@@ -1,5 +1,5 @@
-import { generate } from 'services/generator'
 import { addDependencies } from 'services/exec'
+import { generate } from 'services/generator'
 import { json } from 'services/json'
 import { ProjectType } from 'state.types'
 

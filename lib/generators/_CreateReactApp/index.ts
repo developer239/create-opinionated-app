@@ -1,8 +1,8 @@
 import { prompt } from 'inquirer'
-import { shell } from 'services/shell'
-import { json } from 'services/json'
 import { addDependencies, moveToDevDependencies, removeFiles } from 'services/exec'
 import { generate } from 'services/generator'
+import { json } from 'services/json'
+import { shell } from 'services/shell'
 
 export const moduleName = '_CreateReactApp'
 

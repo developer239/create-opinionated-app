@@ -1,6 +1,6 @@
 import { prompt } from 'inquirer'
-import { generate } from 'services/generator'
 import { addDependencies } from 'services/exec'
+import { generate } from 'services/generator'
 import { json } from 'services/json'
 
 const moduleName = 'cypress'
