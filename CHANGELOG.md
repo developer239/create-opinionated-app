@@ -1,3 +1,17 @@
+# [1.16.0](https://github.com/developer239/create-opinionated-app/compare/v1.15.0...v1.16.0) (2020-02-17)
+
+
+### Bug Fixes
+
+* envFilePath ([9187a26](https://github.com/developer239/create-opinionated-app/commit/9187a264e070dd58251e6244c21ea455c06eb498))
+* load forgotten config provider ([f045d51](https://github.com/developer239/create-opinionated-app/commit/f045d51f10d54ce49b3e54821c1f9652c3fca74e))
+
+
+### Features
+
+* add minimal github workflow ([39da3d7](https://github.com/developer239/create-opinionated-app/commit/39da3d7f10b8326d809b99ac3c36e9a50f96b6f9))
+* improve nest js codebase ([e30ddfe](https://github.com/developer239/create-opinionated-app/commit/e30ddfe6cf2f1fb20fb89b865d9c3107ef62db64))
+
 # [1.15.0](https://github.com/developer239/create-opinionated-app/compare/v1.14.1...v1.15.0) (2020-02-16)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "create-opinionated-app",
-  "version": "1.15.0",
+  "version": "1.16.0",
   "bin": "lib/index.js",
   "repository": "https://github.com/developer239/create-opinionated-app.git",
   "author": "Michal Jarnot <m.jarnot@yahoo.com>",
