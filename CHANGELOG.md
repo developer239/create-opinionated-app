@@ -1,3 +1,10 @@
+## [1.16.1](https://github.com/developer239/create-opinionated-app/compare/v1.16.0...v1.16.1) (2020-02-17)
+
+
+### Bug Fixes
+
+* change name of .git workflow ([e8761b0](https://github.com/developer239/create-opinionated-app/commit/e8761b045e9f25e6fc858cfb0bf5393ae194351d))
+
 # [1.16.0](https://github.com/developer239/create-opinionated-app/compare/v1.15.0...v1.16.0) (2020-02-17)
 
 
