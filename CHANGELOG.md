@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/developer239/create-opinionated-app/compare/v1.16.1...v1.17.0) (2020-02-17)
+
+
+### Features
+
+* simplify eslint for node projects ([71334a1](https://github.com/developer239/create-opinionated-app/commit/71334a19b5c5facafcbe8e83dee1a91b66b1f2f4))
+
 ## [1.16.1](https://github.com/developer239/create-opinionated-app/compare/v1.16.0...v1.16.1) (2020-02-17)
 
 
