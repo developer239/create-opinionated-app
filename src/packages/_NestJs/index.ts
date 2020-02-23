@@ -17,7 +17,7 @@ export const initNestJsApp = async (context: IContext) => {
     `npx nest new ${context.projectFolder} --package-manager yarn`,
     '[nest.js] initialize',
   )
-  await addDependencies('install @nestjs/config', ['@nestjs/config'])
+  await addDependencies('install essential libraries', ['@nestjs/config', 'class-transformer', '@nestjs/swagger', 'swagger-ui-express', '@godaddy/terminus', '@nestjs/terminus'])
   await removeFiles('old project structure', ['src', 'test', '.eslintrc.js', '.prettierrc', 'README.md'], true)
 
   await json.update('package.json')(

@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { parse } from 'pg-connection-string'
-import { EnvModule } from 'src/modules/env'
-import { EnvService } from 'src/modules/env/services/Env'
+import { EnvModule } from 'src/modules/env/env.module'
+import { EnvService } from 'src/modules/env/env.service'
 
 @Module({
   imports: [
@@ -13,23 +13,19 @@ import { EnvService } from 'src/modules/env/services/Env'
         const pgUrl = parse(envService.getString('DATABASE_URL'))
 
         return {
-          logging: true,
           type: 'postgres',
           host: pgUrl.host,
           port: Number(pgUrl.port),
           username: pgUrl.user,
           password: pgUrl.password,
           database: pgUrl.database,
-          entities: [
-            `${__dirname}/../**/entities/*.entity.{js,ts}`,
-          ],
+          entities: [`${__dirname}/../**/*.entity.{js,ts}`],
           synchronize: true,
         }
       },
     }),
   ],
   controllers: [],
-  providers: []
+  providers: [],
 })
-export class DatabaseModule {
-}
+export class DatabaseModule {}
