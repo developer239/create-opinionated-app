@@ -1,3 +1,10 @@
+## [1.19.1](https://github.com/developer239/create-opinionated-app/compare/v1.19.0...v1.19.1) (2020-02-23)
+
+
+### Bug Fixes
+
+* set NODE_ENV for TypeORM CI ([551ecfb](https://github.com/developer239/create-opinionated-app/commit/551ecfbd37991d06cfb6bbe03a7bbceaae28c931))
+
 # [1.19.0](https://github.com/developer239/create-opinionated-app/compare/v1.18.0...v1.19.0) (2020-02-23)
 
 
