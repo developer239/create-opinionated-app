@@ -1,3 +1,15 @@
+# [1.19.0](https://github.com/developer239/create-opinionated-app/compare/v1.18.0...v1.19.0) (2020-02-23)
+
+
+### Bug Fixes
+
+* don't generate stylelint for nest.js ([1006236](https://github.com/developer239/create-opinionated-app/commit/1006236102e5218d6409757b9ecca7b3c58b4260))
+
+
+### Features
+
+* update nest.js ORM github workflow ([373745e](https://github.com/developer239/create-opinionated-app/commit/373745ed73864c1e5a11a92d34f5ea51f623db0f))
+
 # [1.18.0](https://github.com/developer239/create-opinionated-app/compare/v1.17.0...v1.18.0) (2020-02-23)
 
 
