@@ -34,3 +34,6 @@ jobs:
 
       - name: Test
         run: yarn test
+        env:
+          # set to test when https://github.com/CasperWA/postgresql-action/pull/2 merged
+          NODE_ENV: ci
