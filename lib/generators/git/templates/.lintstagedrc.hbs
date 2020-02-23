@@ -2,7 +2,9 @@
   "*.{ts,tsx}": [
     "eslint --fix",
     "prettier  --write",
+{{#if isStylelint}}
     "stylelint",
+{{/if}}
     "git add"
   ],
 }

@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common'
-import { EnvModule } from 'src/modules/env/env.module'
 {{#if isDatabase}}
 import { DatabaseModule } from 'src/modules/database/database.module'
 {{/if}}
+import { EnvModule } from 'src/modules/env/env.module'
 import { TerminusModule } from 'src/modules/terminus/terminus.module'
 import { WelcomeModule } from 'src/modules/welcome/welcome.module'
 
