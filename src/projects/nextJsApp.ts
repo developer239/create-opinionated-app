@@ -9,7 +9,7 @@ import { setUpGitHooks } from 'packages/git/hooks'
 import { addHerokuWeb } from 'packages/heroku'
 import { addPrettier } from 'packages/prettier'
 import { addStylelint } from 'packages/stylelint'
-import { DeploymentType, IMainState, ProjectType } from 'state.types'
+import { AppType, DeploymentType, IMainState, ProjectType } from 'state.types'
 
 export const createNextJsApp = async (context: IMainState) => {
   const { isCypress } = await prompt({
@@ -56,7 +56,9 @@ export const createNextJsApp = async (context: IMainState) => {
   await addEslint({ appType: context.appType, projectFolder: context.projectFolder })
 
   // Git hooks
-  await setUpGitHooks()
+  await setUpGitHooks({
+    appType: AppType.WEB,
+  })
 
   if (isHeroku) {
     await addHerokuWeb({

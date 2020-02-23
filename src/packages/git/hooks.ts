@@ -1,9 +1,14 @@
 import { addDependencies } from 'services/exec'
 import { generate } from 'services/generator'
+import { AppType } from 'state.types'
 
 const moduleName = 'git'
 
-export const setUpGitHooks = async () => {
+interface IContext {
+  appType: AppType
+}
+
+export const setUpGitHooks = async (context: IContext) => {
   await addDependencies('git hooks', [
     'husky',
     'lint-staged',
@@ -15,5 +20,8 @@ export const setUpGitHooks = async () => {
     name: moduleName,
     source: 'templates',
     destination: '.',
+    context: {
+      isStylelint: context.appType !== AppType.NODE,
+    },
   })
 }

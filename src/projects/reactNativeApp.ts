@@ -5,7 +5,7 @@ import { addFilesToGit } from 'packages/git/add'
 import { setUpGitHooks } from 'packages/git/hooks'
 import { addPrettier } from 'packages/prettier'
 import { addStylelint } from 'packages/stylelint'
-import { IMainState } from 'state.types'
+import { AppType, IMainState } from 'state.types'
 
 export const createReactNativeApp = async (context: IMainState) => {
   // Init app
@@ -21,7 +21,9 @@ export const createReactNativeApp = async (context: IMainState) => {
   await addEslint({ appType: context.appType, projectFolder: context.projectFolder })
 
   // Git hooks
-  await setUpGitHooks()
+  await setUpGitHooks({
+    appType: AppType.MOBILE,
+  })
 
   // Commit and share on Github
   await addFilesToGit({ projectFolder: context.projectFolder })

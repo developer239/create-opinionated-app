@@ -5,7 +5,7 @@ import { addEslint } from 'packages/eslint'
 import { setUpGitHooks } from 'packages/git/hooks'
 import { addHerokuNode } from 'packages/heroku'
 import { addPrettier } from 'packages/prettier'
-import { DatabaseType, DeploymentType, IMainState, ProjectType } from 'state.types'
+import { AppType, DatabaseType, DeploymentType, IMainState, ProjectType } from 'state.types'
 
 export const createNestJsApp = async (context: IMainState) => {
   const { databaseType } = await prompt({
@@ -40,7 +40,9 @@ export const createNestJsApp = async (context: IMainState) => {
   await addEditorconfig()
   await addPrettier({ projectFolder: context.projectFolder })
   await addEslint({ appType: context.appType, projectFolder: context.projectFolder })
-  await setUpGitHooks()
+  await setUpGitHooks({
+    appType: AppType.NODE,
+  })
 
   if (isHeroku) {
     await addHerokuNode({
