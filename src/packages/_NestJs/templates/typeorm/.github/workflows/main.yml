@@ -1,0 +1,36 @@
+name: CI
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        id: cache
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: yarn install
+
+      - name: Setup PostgreSQL
+        uses: harmon758/postgresql-action@v1.0.0
+        with:
+          postgresql version: 11
+          postgresql db: someNestApp
+          postgresql user: root
+          postgresql password: secretPassword
+          postgresql port: 5432
+
+      - name: Test
+        run: yarn test
