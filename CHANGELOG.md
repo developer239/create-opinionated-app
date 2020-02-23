@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/developer239/create-opinionated-app/compare/v1.17.0...v1.18.0) (2020-02-23)
+
+
+### Features
+
+* refresh nest.js project structure ([fe90878](https://github.com/developer239/create-opinionated-app/commit/fe908784d7ef681f0fad66be63f258538805b7af))
+
 # [1.17.0](https://github.com/developer239/create-opinionated-app/compare/v1.16.1...v1.17.0) (2020-02-17)
 
 
