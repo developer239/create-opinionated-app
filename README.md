@@ -9,6 +9,11 @@
 
 ## Installation
 
+**Requirements:**
+
+- Node version >= 12 🙏
+- Xcode version >= 11 [react-native only]
+
 Run following command:
 
 ```bash
