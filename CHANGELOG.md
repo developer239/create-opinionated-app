@@ -1,3 +1,10 @@
+## [1.20.1](https://github.com/developer239/create-opinionated-app/compare/v1.20.0...v1.20.1) (2020-02-27)
+
+
+### Bug Fixes
+
+* linting error on gatsby home page ([8a4ab76](https://github.com/developer239/create-opinionated-app/commit/8a4ab76ceee84cfc208012b5106512924c3515cb))
+
 # [1.20.0](https://github.com/developer239/create-opinionated-app/compare/v1.19.1...v1.20.0) (2020-02-27)
 
 
