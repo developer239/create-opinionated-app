@@ -2,6 +2,7 @@ import * as chalk from 'chalk'
 import figlet from 'figlet'
 import { prompt } from 'inquirer'
 import { createReactApp } from 'projects/createReactApp'
+import { createGatsbyApp } from 'projects/gatsby'
 import { createNestJsApp } from 'projects/nestJsApp'
 import { createNextJsApp } from 'projects/nextJsApp'
 import { createReactNativeApp } from 'projects/reactNativeApp'
@@ -21,6 +22,7 @@ const main = async () => {
     type: 'list',
     message: 'What type of application would you like to create?',
     choices: [
+      { name: 'Gatsby App', value: ProjectType.GATSBY },
       { name: 'Create React App', value: ProjectType.CRA },
       { name: 'Next.js', value: ProjectType.NEXT },
       { name: 'React Native', value: ProjectType.RN },
@@ -45,6 +47,10 @@ const main = async () => {
   await checkNpx()
 
   switch (projectType) {
+    case ProjectType.GATSBY:
+      state.appType = AppType.WEB
+      await createGatsbyApp(state)
+      break
     case ProjectType.CRA:
       state.appType = AppType.WEB
       await createReactApp(state)

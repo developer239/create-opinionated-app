@@ -3,6 +3,7 @@ export enum ProjectType {
   NEXT = 'next',
   RN = 'rn',
   NEST= 'nest',
+  GATSBY= 'gatsby',
 }
 
 export enum AppType {
@@ -15,7 +16,6 @@ export enum DeploymentType {
   NONE = 'none',
   HEROKU = 'heroku',
 }
-
 
 export enum DatabaseType {
   NONE = 'none',

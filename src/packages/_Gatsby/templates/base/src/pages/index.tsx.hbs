@@ -1,0 +1,18 @@
+/* eslint-disable import/no-default-export */
+import React from 'react'
+import styled from 'styled-components'
+
+const Hello = styled.span`
+  background-color: red;
+  color: white;
+`
+
+export const HOME_TEST_ID = 'home-test-id'
+
+export const HomePage = () => (
+  <div data-testid={HOME_TEST_ID}>
+    <Hello>Hello Some App! 👋</Hello>
+  </div>
+)
+
+export default HomePage

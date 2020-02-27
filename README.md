@@ -37,6 +37,7 @@ Keep in mind that this generator is **strongly opinionated**. Javascript communi
  
 All of us need Typescript, CSS-in-JS, code quality tools and basic configuration for unit testing. This generator creates following applications:
 
+- [x] [gatsby](https://github.com/gatsbyjs/gatsby)
 - [x] [create-react-app](https://github.com/facebook/create-react-app)
 - [x] [next.js](https://github.com/zeit/next.js)
 - [x] [react-native](https://github.com/facebook/react-native)

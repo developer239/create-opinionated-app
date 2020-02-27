@@ -9,7 +9,7 @@ export const addDependencies = (name: string, libraries: string[], isDev = false
 
 export const removeDependencies = (name: string, libraries: string[]) =>
   shell.execInProjectWithSpinner(state.projectFolder)(
-    `yarn add ${libraries.join(' ')}`,
+    `yarn remove ${libraries.join(' ')}`,
     `[dependencies][remove] ${name}`
   )
 

@@ -1,0 +1,15 @@
+module.exports = {
+  siteMetadata: {
+    title: '{{ projectName }}',
+  },
+  plugins: [
+    'gatsby-plugin-typescript',
+    'gatsby-plugin-styled-components',
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        'src': `${__dirname}/src`
+      }
+    },
+  ],
+}
