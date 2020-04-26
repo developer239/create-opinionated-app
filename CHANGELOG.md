@@ -1,3 +1,10 @@
+# [1.21.0](https://github.com/developer239/create-opinionated-app/compare/v1.20.1...v1.21.0) (2020-04-26)
+
+
+### Features
+
+* add simple node cli app generator ([f28b7a8](https://github.com/developer239/create-opinionated-app/commit/f28b7a8287b9f09e305758b5498031fbb64d3a38))
+
 ## [1.20.1](https://github.com/developer239/create-opinionated-app/compare/v1.20.0...v1.20.1) (2020-02-27)
 
 
