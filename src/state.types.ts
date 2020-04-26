@@ -1,4 +1,5 @@
 export enum ProjectType {
+  NODE_CLI = 'node-cli',
   CRA = 'cra',
   NEXT = 'next',
   RN = 'rn',

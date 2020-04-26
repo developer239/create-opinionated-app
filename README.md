@@ -72,6 +72,7 @@ You can find config files for these hand-crafted [code quality resources here](h
  
 Backend projects are in a way much simpler to setup than frontend projects because libraries that are commonly used are more stable and Node environment is more predictable.
 
+- [x] node-cli (minimal node.js + typescript)
 - [x] [nest.js](https://github.com/nestjs/nest)
 
 ##### Core Project Dependencies

@@ -13,6 +13,7 @@ import { capitalizeAll, toAlphaNumeric } from 'services/text'
 import { validator } from 'services/validator'
 import { state } from 'state'
 import { AppType, ProjectType } from 'state.types'
+import { createNodeCliApp } from './projects/nodeCliApp'
 
 const main = async () => {
   logger.info(chalk.green(figlet.textSync('Create App')))
@@ -22,11 +23,12 @@ const main = async () => {
     type: 'list',
     message: 'What type of application would you like to create?',
     choices: [
-      { name: 'Gatsby App', value: ProjectType.GATSBY },
       { name: 'Create React App', value: ProjectType.CRA },
       { name: 'Next.js', value: ProjectType.NEXT },
       { name: 'React Native', value: ProjectType.RN },
       { name: 'Nest.js', value: ProjectType.NEST },
+      { name: 'Node CLI', value: ProjectType.NODE_CLI },
+      { name: 'Gatsby App', value: ProjectType.GATSBY },
     ],
   })
   state.projectType = projectType
@@ -47,6 +49,10 @@ const main = async () => {
   await checkNpx()
 
   switch (projectType) {
+    case ProjectType.NODE_CLI:
+      state.appType = AppType.NODE
+      await createNodeCliApp(state)
+      break
     case ProjectType.GATSBY:
       state.appType = AppType.WEB
       await createGatsbyApp(state)
